@@ -1,6 +1,14 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import calendrier from './calendrier';
+import evenements from './evenements';
+import record from './record';
+import goals from './goals';
+import totDistance from './totDistance';
+import statutEntrainement from './statutEntrainement';
+import derniereActivite from './derniereActivite';
+
 
 function App() {
   return (
