@@ -9,6 +9,10 @@ import totDistance from './totDistance';
 import statutEntrainement from './statutEntrainement';
 import derniereActivite from './derniereActivite';
 
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
 
 function App() {
   return (
@@ -27,6 +31,26 @@ function App() {
           Learn React
         </a>
       </header>
+
+      <main>
+
+      
+      
+        <Container>   
+
+          <Row> 
+
+            <Col lg={4}>ok</Col>
+
+            <Col lg={8}>bv</Col>
+
+          </Row>
+
+        </Container>
+        
+
+
+      </main>
     </div>
   );
 }
