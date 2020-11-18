@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import {
-  BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend,
+  BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
 } from 'recharts';
 
 
@@ -48,23 +48,26 @@ class TotDistance extends React.PureComponent {
 		return (
 			<div className="totDistanceBox">
 				<Titre name={this.state.name}/>
-				<BarChart
-					className="BarChart"
-					width={350}
-					height={180}
-					data={data}
-					margin={{
-					top: 20, right: 5, left: 5, bottom: 5,
-					}}
+				<ResponsiveContainer 
+						width="90%"
+						height={180}
 				>
-					<CartesianGrid strokeDasharray="3 4" />
-					<XAxis dataKey="name" />
-					<YAxis />
-					<Tooltip />
-					<Bar dataKey="velo" fill="#E5A799" fillOpacity="0.74" />
-					<Bar dataKey="natation" fill="#E57359" fillOpacity="0.74" />
-					<Bar dataKey="course" fill="#E1411D" fillOpacity="0.74" />
-				</BarChart>
+					<BarChart
+						className="BarChart"
+						data={data}
+						margin={{
+						top: 20, right: 5, left: 5, bottom: 5,
+						}}
+					>
+						<CartesianGrid strokeDasharray="3 4" />
+						<XAxis dataKey="name" />
+						<YAxis />
+						<Tooltip />
+						<Bar dataKey="velo" fill="#E5A799" fillOpacity="0.74" />
+						<Bar dataKey="natation" fill="#E57359" fillOpacity="0.74" />
+						<Bar dataKey="course" fill="#E1411D" fillOpacity="0.74" />
+					</BarChart>
+				</ResponsiveContainer>
 				<div className="Legende">
 					<p className="Natation">Natation</p>
 					<p className="Velo">Vélo</p>
