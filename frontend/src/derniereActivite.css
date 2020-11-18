@@ -1,3 +1,7 @@
-.yellow{
-	background-color: yellow;
+.derniereactivitee{
+	margin: 0.8em;
+	border-radius: 15px;
+	border-width: 0.2em;
+	border-color: #000000;
+	border-style: solid;
 }
