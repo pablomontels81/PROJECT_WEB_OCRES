@@ -5,3 +5,40 @@
 	border-color: #000000;
 	border-style: solid;
 }
+
+.container2{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.container1{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-left: 10%;
+	margin-right: 10%;
+	font-weight: bold;
+}
+
+/*Image*/
+.image{
+	width: 3em;
+	height: 3em;
+	margin-top: 50%;
+}
+
+/*Couleur des différents textes*/
+.profond{
+	color: #060384;
+}
+.reveille{
+	color: #EE9AD1;
+}
+.leger{
+	color:#0BA4D4;
+}
+.rem{
+	color: #9C06A9;
+}
+
