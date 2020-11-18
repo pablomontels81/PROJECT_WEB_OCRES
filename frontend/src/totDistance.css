@@ -1,3 +1,20 @@
-.pink{
-	background-color: pink;
+.totDistanceBox{
+	margin: 0.8em;
+	border-radius: 15px;
+	border-width: 0.2em;
+	border-color: #000000;
+	border-style: solid;
+}
+.Legende{
+	display: flex;
+	flex-direction: column;
+}
+.Natation{
+	color: #E57359;
+}
+.Velo{
+	color: #E5A799;
+}
+.CourseaPied{
+	color:#E1411D;
 }
