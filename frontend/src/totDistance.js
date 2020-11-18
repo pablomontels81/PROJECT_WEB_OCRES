@@ -39,11 +39,17 @@ class TotDistance extends React.PureComponent {
 	constructor(props) {
 		super(props);
 		this.state = {
-		  name : "Total Distance"};
+		  name : "Total Distance",
+		  velo : "velo",
+		  course : "course",
+		  natation : "natation"};
 	}
+
+	
 
 	static jsfiddleUrl = 'https://jsfiddle.net/alidingling/30763kr7/';
 
+	
 	render() {
 		return (
 			<div className="totDistanceBox">
@@ -63,15 +69,40 @@ class TotDistance extends React.PureComponent {
 						<XAxis dataKey="name" />
 						<YAxis />
 						<Tooltip />
-						<Bar dataKey="velo" fill="#E5A799" fillOpacity="0.74" />
-						<Bar dataKey="natation" fill="#E57359" fillOpacity="0.74" />
-						<Bar dataKey="course" fill="#E1411D" fillOpacity="0.74" />
+
+						<Bar dataKey={this.state.velo} fill="#E5A799" fillOpacity="0.74" />
+						<Bar dataKey={this.state.natation} fill="#E57359" fillOpacity="0.74" />
+						<Bar dataKey={this.state.course} fill="#E1411D" fillOpacity="0.74" />
 					</BarChart>
 				</ResponsiveContainer>
 				<div className="Legende">
-					<p className="Natation">Natation</p>
-					<p className="Velo">Vélo</p>
-					<p className="CourseaPied">Course à Pied</p>
+					<div className="Combo">
+						<p className="Natation">Natation</p>
+						<form action="#">
+						<div class="switch">
+							<input id="switch-1" type="checkbox" class="switch-input" />
+							<label for="switch-1" class="switch-label">Switch</label>
+						</div>
+						</form>
+					</div>
+					<div className="Combo">
+						<p className="Velo">Vélo</p>
+						<form action="#">
+						<div class="switch">
+							<input id="switch-2" type="checkbox" class="switch-input" />
+							<label for="switch-2" class="switch-label">Switch</label>
+						</div>
+						</form>
+					</div>
+					<div className="Combo">
+						<p className="Natation">Course à Pied</p>
+						<form action="#">
+						<div class="switch">
+							<input id="switch-3" type="checkbox" class="switch-input" />
+							<label for="switch-3" class="switch-label">Switch</label>
+						</div>
+						</form>
+					</div>
 				</div>
 			</div>
 		);

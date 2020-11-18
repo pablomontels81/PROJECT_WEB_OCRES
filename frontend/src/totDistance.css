@@ -5,16 +5,79 @@
 	border-color: #000000;
 	border-style: solid;
 }
+
 .Legende{
 	display: flex;
 	flex-direction: column;
 }
+
+.Combo{
+	display: flex;
+	flex-direction: row;
+	margin-left: 25%;
+}
+
 .Natation{
 	color: #E57359;
+	margin-right: 2em;
 }
 .Velo{
 	color: #E5A799;
+	margin-right: 2em;
 }
 .CourseaPied{
 	color:#E1411D;
+	margin-right: 2em;
 }
+
+
+.switch {
+	position: relative;
+	display: inline-block;
+	margin-top: 0.3em;
+  }
+  .switch-input {
+	display: none;
+  }
+  .switch-label {
+	display: block;
+	width: 3em;
+	height: 1.1em;
+	text-indent: -150%;
+	clip: rect(0 0 0 0);
+	color: transparent;
+	user-select: none;
+  }
+  .switch-label::before,
+  .switch-label::after {
+	content: "";
+	display: block;
+	position: absolute;
+	cursor: pointer;
+  }
+  .switch-label::before {
+	width: 3em;
+	height: 1.1em;
+	background-color: #dedede;
+	border-radius: 9999em;
+	-webkit-transition: background-color 0.25s ease;
+	transition: background-color 0.25s ease;
+  }
+  .switch-label::after {
+	top: 0;
+	left: 0;
+	width: 1em;
+	height: 1em;
+	border-radius: 50%;
+	background-color: #fff;
+	box-shadow: 0 0 2px rgba(0, 0, 0, 0.45);
+	-webkit-transition: left 0.25s ease;
+	transition: left 0.25s ease;
+  }
+  .switch-input:checked + .switch-label::before {
+	background-color: #89c12d;
+  }
+  .switch-input:checked + .switch-label::after {
+	left: 70%;
+  }
+  
