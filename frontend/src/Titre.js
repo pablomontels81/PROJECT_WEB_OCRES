@@ -1,5 +1,7 @@
 import React from 'react';
 
+import './Titre.css';
+
 class Titre extends React.PureComponent {
 
     // eslint-disable-next-line no-useless-constructor

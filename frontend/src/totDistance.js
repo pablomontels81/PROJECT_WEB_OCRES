@@ -39,16 +39,72 @@ class TotDistance extends React.PureComponent {
 	constructor(props) {
 		super(props);
 		this.state = {
-		  name : "Total Distance",
-		  velo : "velo",
-		  course : "course",
-		  natation : "natation"};
+		  name : "Distance Totale",
+		  velo : "",
+		  course : "",
+		  natation : ""};
 	}
 
 	
 
 	static jsfiddleUrl = 'https://jsfiddle.net/alidingling/30763kr7/';
 
+	AddNatation = () => 
+    {
+		if (this.state.natation === "")
+		{
+			this.setState(
+				{
+					natation : "natation"
+				}
+			);
+		} 
+		else {
+			this.setState(
+				{
+					natation : ""
+				}
+			);
+		}
+	}
+	
+	AddVelo = () => 
+    {
+		if (this.state.velo === "")
+		{
+			this.setState(
+				{
+					velo : "velo"
+				}
+			);
+		} 
+		else {
+			this.setState(
+				{
+					velo : ""
+				}
+			);
+		}
+	}
+	
+	AddCourse = () => 
+    {
+		if (this.state.course === "")
+		{
+			this.setState(
+				{
+					course : "course"
+				}
+			);
+		} 
+		else {
+			this.setState(
+				{
+					course : ""
+				}
+			);
+		}
+    }
 	
 	render() {
 		return (
@@ -80,7 +136,7 @@ class TotDistance extends React.PureComponent {
 						<p className="Natation">Natation</p>
 						<form action="#">
 						<div class="switch">
-							<input id="switch-1" type="checkbox" class="switch-input" />
+							<input id="switch-1" type="checkbox" class="switch-input" onClick={this.AddNatation}/>
 							<label for="switch-1" class="switch-label">Switch</label>
 						</div>
 						</form>
@@ -89,7 +145,7 @@ class TotDistance extends React.PureComponent {
 						<p className="Velo">Vélo</p>
 						<form action="#">
 						<div class="switch">
-							<input id="switch-2" type="checkbox" class="switch-input" />
+							<input id="switch-2" type="checkbox" class="switch-input" onClick={this.AddVelo}/>
 							<label for="switch-2" class="switch-label">Switch</label>
 						</div>
 						</form>
@@ -98,7 +154,7 @@ class TotDistance extends React.PureComponent {
 						<p className="Natation">Course à Pied</p>
 						<form action="#">
 						<div class="switch">
-							<input id="switch-3" type="checkbox" class="switch-input" />
+							<input id="switch-3" type="checkbox" class="switch-input" onClick={this.AddCourse}/>
 							<label for="switch-3" class="switch-label">Switch</label>
 						</div>
 						</form>
