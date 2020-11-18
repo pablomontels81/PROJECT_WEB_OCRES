@@ -1,3 +1,33 @@
-.purple{
-	background-color: purple;
+.centre{
+	display: flex;
+   	justify-content: center;
+}
+
+.cercle{
+	height: 5em;
+	width: 5em;
+	border-radius: 50%;
+	display: inline-block;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	background-color: #E1411D;
+}
+
+.couleur-course{
+	background-color: #E1411D;
+}
+
+.couleur-velo{
+	background-color: #E5A799;
+}
+
+.couleur-natation {
+	background-color: #E57359;
+}
+
+.ecriture{
+	display: flex;
+   	justify-content: center;
+   	align-items: center;
+   	font-size: 1em;
 }
