@@ -1,4 +1,6 @@
 import React from 'react';
+import Calendar from 'react-calendar';
+import PropTypes from 'prop-types';
 
 import './calendrier.css';
 import Titre from './Titre';
@@ -10,7 +12,14 @@ class Calendrier extends React.Component {
 	constructor(props){
 		super(props);
 		this.state = {
-		name : "Calendrier"
+		name : "Calendrier",
+		events : [
+			{
+				start: new Date(2020,11,19),
+				end: new Date(2020,11,19),
+				title: 'Vélo',
+			},
+		]
 		};
 	}
 
@@ -18,7 +27,10 @@ class Calendrier extends React.Component {
 
 		return (
 			<div className ="calendrier">
-				<Titre name={this.state.name}/>
+				<Calendar
+				className="calendar"
+				events={this.state.events}
+				/>
 			</div>
 		);
 	}

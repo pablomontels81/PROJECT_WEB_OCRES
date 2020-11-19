@@ -5,3 +5,9 @@
 	border-color: #839192;
 	border-style: solid;
 }
+
+.calendar{
+	width: 90%;
+	height: 90%;
+	margin: 0.6em;
+}
