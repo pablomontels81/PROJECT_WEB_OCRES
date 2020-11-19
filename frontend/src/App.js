@@ -28,7 +28,7 @@ function App() {
 
       
       
-        <Container fluid>   
+        <Container fluid className="Container1">   
 
           <Row> 
 

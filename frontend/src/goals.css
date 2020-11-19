@@ -1,3 +1,61 @@
-.purple{
-	background-color: purple;
+.goals{
+	margin: 0.8em;
+	border-radius: 15px;
+	border-width: 0.1em;
+	border-color: #839192;
+	border-style: solid;
+}
+
+.centre{
+	display: flex;
+   	justify-content: center;
+}
+
+.cercle{
+	margin-left: -35%;
+	height: 5em;
+	width: 5em;
+	border-radius: 50%;
+	display: inline-block;
+	margin-top: 1em;
+	margin-bottom: 1em;
+	background-color: #E1411D;
+}
+
+.couleur-course{
+	background-color: #E1411D;
+}
+
+.couleur-velo{
+	background-color: #E5A799;
+}
+
+.couleur-natation {
+	background-color: #E57359;
+}
+
+.ecriture{
+	display: flex;
+   	justify-content: center;
+   	align-items: center;
+   	font-size: 1em;
+}
+
+
+
+.image{
+	width: 2em;
+	height: 2em;
+}
+
+.Container1{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.Container2{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
 }
