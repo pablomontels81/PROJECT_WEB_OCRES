@@ -19,61 +19,49 @@ class Goals extends React.Component {
 		super(props);
 		this.state = {
 		  name : "Buts",
-		  velo : "",
-		  course : "",
-		  natation : ""};
+		  velo : "60",
+		  course : "40",
+		  natation : "35"};
 	}
 
 	render(){
 		return (
-			<div className="totDistanceBox">
+
+			<div className="goals">
 				<Titre name={this.state.name}/>
 
-				<Container fluid>   
+				<Container fluid className="container">   
 
-          			<Row>
+          			<div className="Container1">
 
-          			<Col lg={4} md={4} sm={4}>
-          				<div className="centre">
-          					<img src={course}/>
-          				</div>
-          				<div className="centre">
-	          				<div className="cercle couleur-course ecriture">
-	          					<div className="ecriture">ok</div>
-	          				</div>
-          				</div>
-          			</Col>
+						<div className="Container2">
+							<img src={course} className="image"/>
+							<p className="cercle couleur-course ecriture">
+								{this.state.course}%
+							</p>
+						</div>
 
-          			<Col lg={4} md={4} sm={4}>
-          				<div className="centre">
-          					<img src={velo}/>
-          				</div>
-          				<div className="centre">
-	          				<div className="cercle couleur-velo ecriture">
-	          					<div className="ecriture">ok</div>
-	          				</div>
-          				</div>
-          			</Col>
+						<div className="Container2">
+							<img src={velo} className="image"/>
+							<p className="cercle couleur-velo ecriture">
+								{this.state.velo}%
+							</p>
+						</div>
 
-          			<Col lg={4} md={4} sm={4}>
-          				<div className="centre">
-          					<img src={natation}/>
-          				</div>
-          				<div className="centre">
-	          				<div className="cercle couleur-natation ecriture">
-	          					<div className="ecriture">ok</div>
-	          				</div>
-          				</div>
-          			</Col>
+						<div className="Container2">
+							<img src={natation} className="image"/>
+							<p className="cercle couleur-natation ecriture">
+								{this.state.natation}%
+							</p>
+						</div>
 
-          			</Row>
+          			</div>
 
           		</Container>
 
 			</div>
 		);
 	}
-
 
 }
 export default Goals;
