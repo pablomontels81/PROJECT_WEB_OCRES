@@ -22,18 +22,22 @@ class StatutEntrainement extends React.Component {
 			<div className ="statutentrainement">
 				<Titre name={this.state.name}/>
 
+				<p className="productif">Productif</p>
+
 				<Container fluid className="container">   
 
           			<div className="Container1">
 
 						<div className="Container2">
-							<p className="cercle">
+							<p className="style">Sport</p>
+							<p className="cercle1 ecriture">
 								{this.state.sport}
 							</p>
 						</div>
 
 						<div className="Container2">
-							<p className="cercle">
+							<p className="style">Charge</p>
+							<p className="cercle1 ecriture">
 								{this.state.charge}
 							</p>
 						</div>

@@ -1,6 +1,8 @@
 import React from 'react';
 
 import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 import course from './image/course.png';
 import velo from './image/velo.png';
@@ -24,7 +26,6 @@ class Goals extends React.Component {
 
 	render(){
 		return (
-
 			<div className="goals">
 				<Titre name={this.state.name}/>
 
@@ -60,6 +61,7 @@ class Goals extends React.Component {
 			</div>
 		);
 	}
+
 
 }
 export default Goals;

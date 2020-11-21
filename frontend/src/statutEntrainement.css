@@ -6,20 +6,24 @@
 	border-style: solid;
 }
 
+.productif{
+	font-style: bold;
+}
+
 .centre{
 	display: flex;
    	justify-content: center;
 }
 
-.cercle{
+.cercle1{
 	margin-left: -35%;
-	height: 5em;
-	width: 5em;
+	height: 3em;
+	width: 3em;
 	border-radius: 50%;
 	display: inline-block;
 	margin-top: 1em;
 	margin-bottom: 1em;
-	background-color: #E1411D;
+	background-color: black;
 }
 
 .Container1{
@@ -32,4 +36,16 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: space-around;
+}
+
+.ecriture{
+	display: flex;
+   	justify-content: center;
+   	align-items: center;
+   	font-size: 1em;
+   	color: white;
+}
+
+.style{
+	color:#839192;
 }
