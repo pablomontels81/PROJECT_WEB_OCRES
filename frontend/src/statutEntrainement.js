@@ -12,6 +12,7 @@ class StatutEntrainement extends React.Component {
 		super(props);
 		this.state = {
 		name : "Statut d'Entraînement",
+		statut : "Productif",
 		sport : "moyen",
 		charge : "élevée"
 		};
@@ -21,12 +22,8 @@ class StatutEntrainement extends React.Component {
 		return (
 			<div className ="statutentrainement">
 				<Titre name={this.state.name}/>
-
-				<p className="productif">Productif</p>
-
-				<Container fluid className="container">   
-
-          			<div className="Container1">
+				<p className="productif">{this.state.statut}</p>
+				<div className="Container1">
 
 						<div className="Container2">
 							<p className="style">Sport</p>
@@ -43,8 +40,6 @@ class StatutEntrainement extends React.Component {
 						</div>
 
           			</div>
-
-          		</Container>
 
 
 
