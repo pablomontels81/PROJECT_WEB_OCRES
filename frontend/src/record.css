@@ -5,3 +5,38 @@
 	border-color: #839192;
 	border-style: solid;
 }
+
+.container-1{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-left: 10%;
+	margin-right: 10%;
+	font-weight: bold;
+}
+
+.container-2{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+	font-size: 0.8em;
+}
+
+/*Image*/
+.image{
+	width: 2em;
+	height: 2em;
+	margin-top: 50%;
+}
+
+.distance-velo{
+	color:  #E5A799;
+}
+
+.distance-course{
+	color:  #E1411D;
+}
+
+.distance-natation{
+	color: #E57359;
+}
