@@ -5,3 +5,14 @@
 	border-color: #839192;
 	border-style: solid;
 }
+
+.Container{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	font-size: 1em;
+}
+
+.Def{
+	font-weight: bold;
+}
