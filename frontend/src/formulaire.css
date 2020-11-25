@@ -1,0 +1,31 @@
+.formulaire{
+    margin-top: 0.8em;
+	border-radius: 15px;
+	border-width: 0.1em;
+	border-color: #839192;
+    border-style: solid;
+}
+
+.titre{
+    color: #E1411D;
+    font-weight: bold;
+}
+
+.Cont1{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-left: 10%;
+	margin-right: 10%;
+	font-weight: bold;
+}
+
+.Cont2{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.submit{
+    margin-bottom: 0.8em;
+}
