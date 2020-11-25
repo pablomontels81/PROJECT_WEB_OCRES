@@ -22,6 +22,7 @@ class DerniereActivite extends React.Component {
 		temps : "5:11",
 		calories : "40",
 		denivele_positif : "120",
+		map : "https://www.google.com/maps/d/u/0/embed?mid=17dB14CBeEUoFPB60kdz9K4jnrJzULQTg"
 		};
 	}
 
@@ -33,10 +34,10 @@ class DerniereActivite extends React.Component {
 				<div className ="derniereactivitee">
 					<Titre name={this.state.name}/>
 					<div className="Container">
-						<img src={velo}/>
+						<img src={velo} className="icone"/>
 						<h3 className="Title">{this.state.location}</h3>
 					</div>
-					<div className="Container">
+					<div className="Container Def">
 						<p>Distance</p>
 						<p>Allure</p>
 						<p>Allure Max</p>
@@ -56,6 +57,9 @@ class DerniereActivite extends React.Component {
 						<p>{this.state.calories}</p>
 						<p>{this.state.denivele_positif} m</p>
 					</div>
+					<iframe 
+					src={this.state.map}
+					className="map"></iframe>
 				</div>
 			);
 		}
@@ -68,7 +72,7 @@ class DerniereActivite extends React.Component {
 						<img src={natation}/>
 						<h3 className="Title">{this.state.location}</h3>
 					</div>
-					<div className="Container">
+					<div className="Container Def">
 						<p>Distance</p>
 						<p>Allure</p>
 						<p>Allure Max</p>
@@ -86,6 +90,9 @@ class DerniereActivite extends React.Component {
 						<p>{this.state.temps}</p>
 						<p>{this.state.calories}</p>
 					</div>
+					<iframe 
+					src={this.state.map}
+					className="map"></iframe>
 				</div>
 			);
 		}	
@@ -98,7 +105,7 @@ class DerniereActivite extends React.Component {
 						<img src={course}/>
 						<h3 className="Title">{this.state.location}</h3>
 					</div>
-					<div className="Container">
+					<div className="Container Def">
 						<p>Distance</p>
 						<p>Allure</p>
 						<p>Allure Max</p>
@@ -118,6 +125,9 @@ class DerniereActivite extends React.Component {
 						<p>{this.state.calories}</p>
 						<p>{this.state.denivele_positif} m</p>
 					</div>
+					<iframe 
+					src={this.state.map}
+					className="map"></iframe>
 				</div>
 			);
 		}		

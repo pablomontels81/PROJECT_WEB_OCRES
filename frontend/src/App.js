@@ -27,7 +27,6 @@ function App() {
       <main>
         
         <Container fluid className="Container1">   
- 
             <Col lg={4} md={4} sm={4}>
               <DerniereActivite />
               <Record />

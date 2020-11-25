@@ -16,3 +16,14 @@
 .Def{
 	font-weight: bold;
 }
+
+.map{
+	width: 23em;
+	height: 20em;
+	border-radius: 2em;
+}
+
+.icone{
+	width: 1em;
+	height: 10em;
+}
