@@ -90,9 +90,11 @@ class DerniereActivite extends React.Component {
 						<p>{this.state.temps}</p>
 						<p>{this.state.calories}</p>
 					</div>
-					<iframe 
+					<div className="divmap">
+						<iframe 
 					src={this.state.map}
 					className="map"></iframe>
+					</div>
 				</div>
 			);
 		}	
