@@ -1,0 +1,37 @@
+.objectif{
+    margin-top: 0.8em;
+	border-radius: 15px;
+	border-width: 0.1em;
+	border-color: #839192;
+    border-style: solid;
+}
+
+.espace{
+    margin-top: 0.8em;
+    margin-bottom: 0.8em;
+}
+
+.Titre{
+    color: #E1411D;
+    font-weight: bold;
+}
+
+.cont1{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	margin-left: 10%;
+	margin-right: 10%;
+	font-weight: bold;
+}
+
+.ok{
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
+}
+
+.input{
+    float: right;
+    width: 50%;
+}

@@ -8,8 +8,8 @@ class Navigation extends React.Component {
     render(){
         return(
         <div className="Navbar">
-          <h3><NavLink to="/" className="contour">&thinsp;Accueil&thinsp;</NavLink></h3>
-          <h3><NavLink to="/formulaire" className="contour">&thinsp;Entrer un résultat&thinsp;</NavLink></h3>
+          <h4><NavLink to="/" className="contour">&thinsp;Accueil&thinsp;</NavLink></h4>
+          <h4><NavLink to="/formulaire" className="contour">&thinsp;Entrer un résultat&thinsp;</NavLink></h4>
        </div>
         );
     }
