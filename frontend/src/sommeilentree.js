@@ -5,7 +5,7 @@ class SommeilEntree extends React.Component {
     render() {
         return(
             <div>
-                <h3>Entrez vos résutats d'entraînement</h3>
+                <h3>Entrez vos horaires de Sommeil</h3>
                 <div className="Sommeil1 formulaire">
                     <p className="titre">Sommeil</p>
                     <div className="Sommeil2">
