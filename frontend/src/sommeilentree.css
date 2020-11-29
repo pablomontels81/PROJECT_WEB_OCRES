@@ -1,0 +1,43 @@
+
+.titre{
+    color: #E1411D;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.buttonsommeil{
+	border-radius: 1em;
+    margin-bottom: 1em;
+    width: 20%;
+    margin-left: 40%;
+}
+
+.entree{
+	border-radius: 0.5em;
+	border-width: 0.1rem;
+	margin-left: 1em;
+	width: 20%;
+
+}
+
+.Sommeil1{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    
+}
+
+.Sommeil2{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.formulaire{
+    margin-top: 0.8em;
+	border-radius: 15px;
+	border-width: 0.1em;
+	border-color: #839192;
+    border-style: solid;
+}
+

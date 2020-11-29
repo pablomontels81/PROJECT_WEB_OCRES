@@ -2,6 +2,7 @@ import React from 'react';
 import './formulaire.css';
 import Resultats from './resultats';
 import NouvelObjectif from './nouvelObjectif';
+import SommeilEntree from './sommeilentree';
  
 class Formulaire extends React.Component {
 
@@ -10,6 +11,7 @@ class Formulaire extends React.Component {
             <div>
                 <Resultats />
                 <NouvelObjectif />
+                <SommeilEntree />
             </div>
          );
     }

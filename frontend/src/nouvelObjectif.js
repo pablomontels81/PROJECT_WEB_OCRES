@@ -19,28 +19,28 @@ class NouvelObjectif extends React.Component {
                                 <p className="titre">Course</p>
                                 <div className="cont1">
                                     <div className="cont2">
-                                        <p>Distance à réaliser:<input type="text" className="input" name="distance" /></p>
+                                        <p>Distance à réaliser:<input type="text" className="input" name="distance" className="entree"/></p>
                                     </div>
                                     <div className="cont2">
-                                        <p><input type="submit" name="objectifCourse" value="Envoyer" /></p>
+                                        <p><input type="submit" name="objectifCourse" value="Modifer" className="button"/></p>
                                     </div>  
                                 </div> 
                                 <p className="titre">Vélo</p>
                                 <div className="cont1">
                                     <div className="cont2">
-                                        <p>Distance à réaliser:<input type="text" className="input" name="distance" /></p>
+                                        <p>Distance à réaliser:<input type="text" className="input" name="distance" className="entree"/></p>
                                     </div>
                                     <div className="cont2">
-                                        <p><input type="submit" name="objectifVelo" value="Envoyer" /></p>
+                                        <p><input type="submit" name="objectifVelo" value="Modifier" className="button"/></p>
                                     </div>  
                                 </div>
                                 <p className="titre">Natation</p>   
                                 <div className="cont1">
                                     <div className="cont2">
-                                        <p>Distance à réaliser:<input type="text" className="input" name="distance" /></p>
+                                        <p>Distance à réaliser:<input type="text" className="input" name="distance" className="entree"/></p>
                                     </div>
                                     <div className="cont2">
-                                        <p><input type="submit" name="objectifNatation" value="Envoyer" /></p>
+                                        <p><input type="submit" name="objectifNatation" value="Modifier" className="button"/></p>
                                     </div>                         
                                 </div>
                             </div>

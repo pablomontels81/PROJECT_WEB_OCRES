@@ -32,7 +32,7 @@ class Resultats extends React.Component {
                                     </div>
                                 </div>
                                 
-                                <p className="titre">Lieu :&nbsp;<input type="text" className="Input1" name="lieu" /></p>
+                                <p className="titre">Lieu :&nbsp;<input type="text" className="Input1" name="lieu" className="entree"/></p>
                                   
                                 <div className="Cont1">
                                     <div className="Cont2">
@@ -40,40 +40,25 @@ class Resultats extends React.Component {
                                         <p className="titre">Vitesse moyenne:</p>
                                     </div>
                                     <div className="Cont2">
-                                        <p><input type="text" className="Input2" name="distance" /></p>
-                                        <p><input type="text" className="Input2" name="vitmoy" /></p>
+                                        <p><input type="text" className="Input2" name="distance" className="entree"/></p>
+                                        <p><input type="text" className="Input2" name="vitmoy" className="entree"/></p>
                                     </div>
                                     <div className="Cont2">
                                         <p className="titre">Temps:</p>
                                         <p className="titre">Vitesse maximale:</p>
                                     </div>
                                     <div className="Cont2">
-                                        <input type="text" className="Input2" name="vitmoy" />
-                                        <input type="text" className="Input2" name="vitmax" />
+                                        <input type="text" className="Input2" name="time" className="entree"/>
+                                        <input type="text" className="Input2" name="vitmax" className="entree"/>
                                     </div>
                                 </div>
-
-                                <p className="titre">Dénivelé:&nbsp;<input type="text" className="Input1" name="denivele" /></p>
-                                <p className="titre">Calories:&nbsp;<input type="text" className="Input1" name="calories" /></p>
-                                <p className="titre">Sommeil</p>
-                                
-
-                                <div className="Cont1">
-                                    <div className="Cont2">
-                                        <p className="titre">Heure de début:</p>
-                                    </div>
-                                    <div className="Cont2">
-                                        <p><input type="text" className="Input2" name="heuredebut" /></p>
-                                    </div>
-                                    <div className="Cont2">
-                                        <p className="titre">Heure de fin:</p>
-                                    </div>
-                                    <div className="Cont2">
-                                        <p><input type="text" className="Input2" name="heurefin" /></p>
-                                    </div>
-                                </div>
-                                    
-                                <input type="submit" className="submit" value="Envoyer" />
+                                <p className="titre">Dénivelé:&nbsp;<input type="text" className="Input1" name="denivele" className="entree"/></p>
+                                <p className="titre">Calories:&nbsp;<input type="text" className="Input1" name="calories" className="entree"/></p>
+                                <p className="titre">Itinéraire/Map:&nbsp;<input type="text" className="Input1" name="map" className="entree"/></p>
+                                <p className="explication">Afin de pouvoir afficher cette map, veuillez récupérer le .gpx de votre activité puis de suivre les étapes de <a href="https://www.papergeek.fr/fichier-gpx-comment-ouvrir-319293">ce lien</a>.
+                                   Ensuite, veuillez récupérer via l'outil Google Map: Partager/Intégrer la Map le code de votre Map et nous le fournir !
+                                </p>
+                                <input type="submit" className="submit" value="Enregistrer l'activité" className="button"/>
                                 
                             </div>
                         </Col>
