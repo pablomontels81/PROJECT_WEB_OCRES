@@ -6,6 +6,9 @@ var logger = require("morgan");
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 
+const hostname = "localhost";
+const port = 8080;
+
 var app = express();
 
 app.use(logger("dev"));
@@ -15,5 +18,9 @@ app.use(cookieParser());
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
+
+app.listen(port, hostname, () => {
+    console.log('App listening on port 8080!')
+})
 
 module.exports = app;
