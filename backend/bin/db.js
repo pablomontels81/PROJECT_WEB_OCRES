@@ -1,4 +1,3 @@
-
 //Fichier de connection à notre BDD
 const mongoose = require('mongoose');
 
@@ -9,13 +8,13 @@ const connect = function (callback) {
     mongoose.set('useCreateIndex', true);
     mongoose.set('useNewUrlParser', true);
 
-    mongoose.connect('mongodb://localhost:27017/DashBoardMONTELSBONNET');
+    mongoose.connect('mongodb+srv://DashBoardMONTELSBONNET:DashBoardMB@cluster0.rwcak.mongodb.net/activities?retryWrites=true&w=majority', {useNewUrlParser:true, useCreateIndex:true});
 
     const db = mongoose.connection;
     //Mise en place des scripts si erreur
     db.on("error", console.error.bind(console, " Connection error"));
-    db.once("open", function () {
-        console.log('Super, vous avez réussi à vous connecter à votre BDD');
+    db.once("open",() => {
+        console.log('Connection réussie à la BDD');
         callback();
     }
     );
