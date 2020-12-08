@@ -18,10 +18,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use("/", indexRouter);
+app.use("/index", indexRouter);
 app.use("/users", usersRouter);
 
-var URLdb = "mongodb+srv://DashBoardMONTELSBONNET:DashBoardMB@cluster0.rwcak.mongodb.net/activities?retryWrites=true&w=majority";
+var URLdb = "mongodb+srv://DashBoardMONTELSBONNET:DashBoardMB@cluster0.rwcak.mongodb.net/DashBoardMONTELSBONNET?retryWrites=true&w=majority";
 mongoose.connect(URLdb, { useNewUrlParser: true, useCreateIndex: true}
     );
 
