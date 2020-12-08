@@ -1,10 +1,9 @@
 var express = require("express");
 var router = express.Router();
-const test = require('./test.json')
 
 /* GET home page. */
-router.get('/homepage', (req,res) => {
-  res.status(200).json(test)
+router.get("/", function(req, res, next) {
+  res.send("This is my homepage");
 });
 
 module.exports = router;

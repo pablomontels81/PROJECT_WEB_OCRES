@@ -1,0 +1,7 @@
+[{
+  "_id": {
+    "$oid": "5fce0940f24b1dafa36073fd"
+  },
+  "horaire_debut": "22:50",
+  "horaire_fin": "08:50"
+}]
