@@ -22,7 +22,7 @@ app.use("/index", indexRouter);
 app.use("/users", usersRouter);
 
 var URLdb = "mongodb+srv://DashBoardMONTELSBONNET:DashBoardMB@cluster0.rwcak.mongodb.net/DashBoardMONTELSBONNET?retryWrites=true&w=majority";
-mongoose.connect(URLdb, { useNewUrlParser: true, useCreateIndex: true}
+mongoose.connect(URLdb, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true}
     );
 
 var connection = mongoose.connection;
@@ -33,7 +33,7 @@ connection.once('open', () => {
 
 
 app.listen(port, () => {
-    console.log('Server is running on port: ${port}');
+    console.log('Server is running on port:'+port);
 });
 
 module.exports = app;
