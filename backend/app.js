@@ -8,8 +8,9 @@ var mongoose = require("mongoose");
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
 
+
 var app = express();
-var port = process.env.PORT || 3000; 
+var port = process.env.PORT || 3001; 
 
 
 
@@ -30,9 +31,17 @@ connection.once('open', () => {
     console.log("MongoDB database connection établie");
 })
 
+const activityRouter = require('./routes/activity');
+const goalRouter = require('./routes/goal');
+const sommeilRouter = require('./routes/sommeil');
+
+
+app.use("/activity", activityRouter);
+app.use("/goal", goalRouter);
+app.use("/sommeil", sommeilRouter);
+
 app.listen(port, () => {
     console.log('Server is running on port:'+port);
 });
 
 module.exports = app;
-
