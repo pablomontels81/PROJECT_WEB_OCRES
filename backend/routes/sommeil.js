@@ -1,2 +1,9 @@
-const router = require('express').Router();
-let Sommeil = require('../modele/sommeil.model.js')
+var express = require('express');
+var router = express.Router();
+
+/* GET users listing. */
+router.get('/', function(req, res, next) {
+  res.send('Sommeil');
+});
+
+module.exports = router;

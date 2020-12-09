@@ -7,10 +7,10 @@ var mongoose = require("mongoose");
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
-var activityRouter = require("./routes/activity");
+
 
 var app = express();
-var port = process.env.PORT || 3000; 
+var port = process.env.PORT || 3001; 
 
 
 
@@ -21,7 +21,6 @@ app.use(cookieParser());
 
 app.use("/index", indexRouter);
 app.use("/users", usersRouter);
-app.use("/activity", activityRouter);
 
 var URLdb = "mongodb+srv://DashBoardMONTELSBONNET:DashBoardMB@cluster0.rwcak.mongodb.net/DashBoardMONTELSBONNET?retryWrites=true&w=majority";
 mongoose.connect(URLdb, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true}
@@ -32,6 +31,14 @@ connection.once('open', () => {
     console.log("MongoDB database connection établie");
 })
 
+var activityRouter = require('./routes/activity');
+var goalRouter = require('./routes/goal');
+var sommeilRouter = require('./routes/sommeil');
+
+
+app.use("/activity", activityRouter);
+app.use("/goal", goalRouter);
+app.use("/sommeil", sommeilRouter);
 
 app.listen(port, () => {
     console.log('Server is running on port:'+port);
