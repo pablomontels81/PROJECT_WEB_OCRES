@@ -31,9 +31,9 @@ connection.once('open', () => {
     console.log("MongoDB database connection établie");
 })
 
-var activityRouter = require('./routes/activity');
-var goalRouter = require('./routes/goal');
-var sommeilRouter = require('./routes/sommeil');
+const activityRouter = require('./routes/activity');
+const goalRouter = require('./routes/goal');
+const sommeilRouter = require('./routes/sommeil');
 
 
 app.use("/activity", activityRouter);
