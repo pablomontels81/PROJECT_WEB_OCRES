@@ -79,8 +79,8 @@ class DerniereActivite extends React.Component {
 					</div>
 					<div className="Container">
 						<p>{this.state.distance} km</p>
-						<p>{this.state.allure} km/h</p>
-						<p>{this.state.allure_max} km/h</p>
+						<p>{this.state.allure} m/h</p>
+						<p>{this.state.allure_max} m/h</p>
 					</div>
 					<div className="Container Def">
 						<p>Temps</p>
@@ -114,8 +114,8 @@ class DerniereActivite extends React.Component {
 					</div>
 					<div className="Container">
 						<p>{this.state.distance} km</p>
-						<p>{this.state.allure} km/h</p>
-						<p>{this.state.allure_max} km/h</p>
+						<p>{this.state.allure} min/km</p>
+						<p>{this.state.allure_max} min/km</p>
 					</div>
 					<div className="Container Def">
 						<p>Temps</p>

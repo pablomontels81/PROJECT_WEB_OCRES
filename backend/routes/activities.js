@@ -16,13 +16,34 @@ router.get('/lastact',(req,res) =>{
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
+/* GET les activités de la semaine */
+router.get('/7week',(req,res) => {
+    var date = new Date();
+    var offset = (date.getDay()+6)%7;
+    var firstdayoftheweek = new Date(date.getFullYear(), date.getMonth(), date.getDate()-offset);
+    var lastdayoftheweek = new Date(firstdayoftheweek.getFullYear(), firstdayoftheweek.getMonth(), firstdayoftheweek.getDate()+6);
+    console.log(firstdayoftheweek);
+    Activity.find().where( { Date: {$gte: firstdayoftheweek, $lte: lastdayoftheweek}})
+    /* Activity.aggregate(
+        {$match: 
+            { Date: {$gte: firstdayoftheweek, $lte: lastdayoftheweek}}
+        }) */
+    .then(activities => res.json(activities))
+    .catch(err => res.status(400).json('Error: ' + err)); 
+});
+
 /* GET somme des activités de course pour le mois présent*/
 router.get('/sumrun',(req,res) => {
     var date = new Date();
     var firstday = new Date(date.getFullYear(), date.getMonth(),1);
     var lastday = new Date(date.getFullYear(), date.getMonth() +1, 0);
+    var offset = (date.getDay()+6)%7;
+    var firstdayoftheweek = new Date(date.getFullYear(), date.getMonth(), date.getDate()-offset+1);
+    var lastdayoftheweek = new Date(firstdayoftheweek.getFullYear(), firstdayoftheweek.getMonth(), firstdayoftheweek.getDate()+6);
     console.log(firstday);
     console.log(lastday);
+    console.log(firstdayoftheweek);
+    console.log(lastdayoftheweek);
     Activity.aggregate([
         {$match: {
             $and : [
@@ -40,8 +61,14 @@ router.get('/sumrun',(req,res) => {
 /* GET somme des activités de velo pour le mois présent*/
 router.get('/sumbike',(req,res) => {
     Activity.aggregate([
-        {$match: { Type: 'velo'}},
-        {$group: {_id: null, Distance: { $sum: "$Distance"}}}
+        {$match: {
+            $and : [
+                { Type: 'velo'}, 
+                { Date: {$gte: firstday, $lte: lastday}}
+            ]
+        }
+            },
+        {$group: {_id: null, Distance: { $sum: "$Distance"}}},
     ])
     .then(activities => res.json(activities))
     .catch(err => res.status(400).json('Error: ' + err));
@@ -50,8 +77,14 @@ router.get('/sumbike',(req,res) => {
 /* GET somme des activités de natation pour le mois présent*/
 router.get('/sumswim',(req,res) => {
     Activity.aggregate([
-        {$match: { Type: 'natation'}},
-        {$group: {_id: null, Distance: { $sum: "$Distance"}}}
+        {$match: {
+            $and : [
+                { Type: 'natation'}, 
+                { Date: {$gte: firstday, $lte: lastday}}
+            ]
+        }
+            },
+        {$group: {_id: null, Distance: { $sum: "$Distance"}}},
     ])
     .then(activities => res.json(activities))
     .catch(err => res.status(400).json('Error: ' + err));
