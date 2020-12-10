@@ -2,13 +2,13 @@ const mongoose = require("mongoose");
 
 const goalSchema = new mongoose.Schema({
     velo_goal: {
-        type: Number,
+        type: String,
     }, 
     natation_goal: {
-        type: Number,
+        type: String,
     },
     course_goal: {
-        type: Number,
+        type: String,
     }, 
 })
 

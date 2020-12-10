@@ -1,33 +1,34 @@
 const express = require('express');
 const router = express.Router();
 let Sommeil = require('../modele/sommeil.model.js');
-const sommeil =  require('../../database/sommeil.json');
 
 /* GET sommeil listing. */
-router.route('/').get((req,res) =>{
+router.get('/',(req,res) =>{
     Sommeil.find()
         .then(sommeil => res.json(sommeil))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
-/* GET sommeilById listing. */
-router.route('/_id').get((req,res) =>{
-    Sommeil.findById(req.params.id)
+/* GET last sommeil */
+router.get('/lastsleep',(req,res) =>{
+    Sommeil.findOne({}).sort({$natural: -1}).limit(1)
         .then(sommeil => res.json(sommeil))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/add').post((req, res) => {
-    const horaire_debut = Number(req.body.horaire_debut);
-    const horaire_fin = Number(req.body.horaire_fin);
+router.post('/add',(req, res) => {
+    const horaire_debut = req.body.horaire_debut;
+    const horaire_fin = req.body.horaire_fin;
+    const date = Date.parse(req.body.date);
 
-    const newSommeil = new Goal({
-      horaire_debut,
+    const newSommeil = new Sommeil({
+        horaire_debut,
         horaire_fin,
+        date,
     });
 
     newSommeil.save()
-        .then(() => res.json('Sommeil added!'))
+        .then(() => res.json('Sommeil ajouté!'))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 

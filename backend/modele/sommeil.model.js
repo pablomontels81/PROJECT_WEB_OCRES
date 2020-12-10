@@ -2,13 +2,17 @@ const mongoose = require("mongoose");
 
 const sommeilSchema = new mongoose.Schema({
     horaire_debut: {
-        type: Number,
-        required: true
+        type: String,
+        required: false
     }, 
     horaire_fin: {
-        type: Number,
-        required: true
-    }  
+        type: String,
+        required: false
+    },
+    date: {
+        type: Date,
+        required: false
+    }
 })
 
 const Sommeil = mongoose.model('Sommeil', sommeilSchema);

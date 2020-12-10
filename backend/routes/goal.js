@@ -1,14 +1,14 @@
 const express = require('express');
 const router = express.Router();
 let Goal = require('../modele/goal.model.js');
-const goal =  require('../../database/goal.json');
 
 /* GET goal listing. */
-router.route('/').get((req,res) =>{
+router.get('/',(req,res) =>{
     Goal.find()
         .then(goal => res.json(goal))
         .catch(err => res.status(400).json('Error: ' + err));
 });
+
 
 /* GET goalById listing. */
 router.route('/_id').get((req,res) =>{
@@ -17,10 +17,25 @@ router.route('/_id').get((req,res) =>{
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
-router.route('/add').post((req, res) => {
-    const velo_goal = Number(req.body.velo_goal);
-    const natation_goal = Number(req.body.natation_goal);
-    const course_goal = Number(req.body.course_goal);
+/* POST update des goals*/
+router.post('/update/:id', (req, res) =>{
+    Goal.findById(req.params.id)
+    .then(goal => {
+        goal.velo_goal = req.body.velo_goal;
+        goal.natation_goal = req.body.natation_goal;
+        goal.course_goal = req.body.course_goal;
+
+        goal.save()
+            .then(() => res.json('Goal updated !'))
+            .catch(err => res.status(400).json('Error: '+err));
+    })
+    .catch(err => res.status(400).json('Error: '+err));
+})
+
+router.post('/add',(req, res) => {
+    const velo_goal = String(req.body.velo_goal);
+    const natation_goal = String(req.body.natation_goal);
+    const course_goal = String(req.body.course_goal);
 
     const newGoal = new Goal({
         velo_goal,
