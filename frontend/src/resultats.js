@@ -117,7 +117,7 @@ class Resultats extends React.Component {
 
         console.log(resultats);
 
-        //window.location = "/formulaire";
+        window.location = "/formulaire";
     }
 
     render(){
