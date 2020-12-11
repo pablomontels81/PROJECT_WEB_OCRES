@@ -43,6 +43,33 @@ router.post('/add',(req, res) => {
         course_goal,
     });
 
+    /* POST update du goal natation (Widget Update Goal)*/
+router.post('/update_natation', (req, res) =>{
+    const filter = {_id : "5fd21280bca1f33ea277a864"};
+    const update = {natation_goal : req.body.natation_goal};
+    Goal.findOneAndUpdate(filter,update)
+        .then(() => res.json('Goal Natation updated!'))
+        .catch(err => res.status(400).json('Error: ' + err));
+});
+
+/* POST update du goal course (Widget Update Goal)*/
+router.post('/update_course', (req, res) =>{
+    const filter = {_id : "5fd21280bca1f33ea277a864"};
+    const update = {course_goal : req.body.course_goal};
+    Goal.findOneAndUpdate(filter,update)
+        .then(() => res.json('Goal Course updated!'))
+        .catch(err => res.status(400).json('Error: ' + err));
+});
+
+/* POST update du goal velo (Widget Update Goal)*/
+router.post('/update_velo', (req, res) =>{
+    const filter = {_id : "5fd21280bca1f33ea277a864"};
+    const update = {velo_goal : req.body.velo_goal};
+    Goal.findOneAndUpdate(filter,update)
+        .then(() => res.json('Goal Velo updated!'))
+        .catch(err => res.status(400).json('Error: ' + err));
+});
+
     newGoal.save()
         .then(() => res.json('Goal added!'))
         .catch(err => res.status(400).json('Error: ' + err));

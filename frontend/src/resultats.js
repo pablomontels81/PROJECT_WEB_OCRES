@@ -7,6 +7,8 @@ import Col from 'react-bootstrap/Col';
 
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
+
+import axios from 'axios';
  
 class Resultats extends React.Component {
 
@@ -112,12 +114,15 @@ class Resultats extends React.Component {
             Calories: this.state.Calories,
             Denivele: this.state.Denivele,
             Map: this.state.Map,
-            date: this.state.date
+            Date: this.state.Date
         }
 
         console.log(resultats);
 
-        window.location = "/formulaire";
+        axios.post('http://localhost:3001/activities/add', resultats)
+            .then(res => console.log(res.data));
+
+        //window.location = "/formulaire";
     }
 
     render(){
