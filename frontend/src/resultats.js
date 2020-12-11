@@ -47,8 +47,7 @@ class Resultats extends React.Component {
         axios.get('http://localhost:3001/activities/lastact')
             .then(response =>{
                 const temp = parseInt(response.data.ID_Activity, 10) +1.0;
-                const temp1 = temp+"";
-                this.setState({ID_Activity: temp1})
+                this.setState({ID_Activity: temp})
             });
     }
 

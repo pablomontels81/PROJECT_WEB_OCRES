@@ -260,7 +260,7 @@ router.post('/add',(req, res) => {
     const Calories = String(req.body.Calories);
     const Denivele = String(req.body.Denivele);
     const Map = String(req.body.Map);
-    const date = Date.parse(req.body.Date);
+    const date = Date.parse(req.body.date);
 
     const newActivity = new Activity({
         ID_Activity,

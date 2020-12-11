@@ -45,7 +45,7 @@ const activitiesSchema = new mongoose.Schema({
         type: String,
         required: false,
     },
-    Date : {
+    date: {
         type: Date,
         required: false,
     },
