@@ -2,6 +2,7 @@ import React from 'react';
 import './sommeilentree.css';
 import DatePicker from 'react-datepicker';
 import "react-datepicker/dist/react-datepicker.css";
+import axios from 'axios';
 
 class SommeilEntree extends React.Component {
 
@@ -47,7 +48,8 @@ class SommeilEntree extends React.Component {
             date: this.state.date
         }
 
-        console.log(sommeilEntree);
+        axios.post('http://localhost:3001/sommeils/add', sommeilEntree)
+            .then(res => console.log(res.data));
 
         window.location = "/formulaire";
     }

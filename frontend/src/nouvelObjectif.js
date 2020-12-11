@@ -4,6 +4,8 @@ import './nouvelObjectif.css';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+
+import axios from 'axios';
  
 class NouvelObjectif extends React.Component {
 
@@ -59,7 +61,10 @@ class NouvelObjectif extends React.Component {
 
         console.log(veloObjectif);
 
-        window.location = "/formulaire";
+        axios.post('http://localhost:3001/goals/update_velo', veloObjectif)
+            .then(res => console.log(res.data));
+
+        //window.location = "/formulaire";
     }
 
     onSubmitNatation_goal(e) {
@@ -71,7 +76,10 @@ class NouvelObjectif extends React.Component {
 
         console.log(natationObjectif);
 
-        window.location = "/formulaire";
+        axios.post('http://localhost:3001/goals/update_natation', natationObjectif)
+            .then(res => console.log(res.data));
+
+        //window.location = "/formulaire";
     }
 
     onSubmitCourse_goal(e) {
@@ -83,7 +91,10 @@ class NouvelObjectif extends React.Component {
 
         console.log(courseObjectif);
 
-        window.location = "/formulaire";
+        axios.post('http://localhost:3001/goals/update_course', courseObjectif)
+            .then(res => console.log(res.data));
+
+        //window.location = "/formulaire";
     }
 
     render(){
