@@ -28,6 +28,8 @@ class Resultats extends React.Component {
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
+            ID_Activity: '',
+            ID_User: '1',
             Type: '',
             Lieu: '',
             Distance: '',
@@ -39,6 +41,15 @@ class Resultats extends React.Component {
             Map: '',
             date: new Date(),
         }
+    }
+
+    componentDidMount() {
+        axios.get('http://localhost:3001/activities/lastact')
+            .then(response =>{
+                const temp = parseInt(response.data.ID_Activity, 10) +1.0;
+                const temp1 = temp+"";
+                this.setState({ID_Activity: temp1})
+            });
     }
 
     onChangeType(e) {
@@ -105,6 +116,8 @@ class Resultats extends React.Component {
         e.preventDefault();
 
         const resultats = {
+            ID_Activity: this.state.ID_Activity,
+            ID_User: this.state.ID_User,
             Type: this.state.Type,
             Lieu: this.state.Lieu,
             Distance: this.state.Distance,

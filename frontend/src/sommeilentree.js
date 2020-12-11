@@ -48,10 +48,12 @@ class SommeilEntree extends React.Component {
             date: this.state.date
         }
 
+        console.log(sommeilEntree);
+
         axios.post('http://localhost:3001/sommeils/add', sommeilEntree)
             .then(res => console.log(res.data));
 
-        window.location = "/formulaire";
+        //window.location = "/formulaire";
     }
 
     render() {
