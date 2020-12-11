@@ -16,7 +16,7 @@ router.get('/lastact',(req,res) =>{
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
-/* GET les activités de la semaine */
+/* GET les activités de la semaine (Widget Distance Total*/
 router.get('/7week',(req,res) => {
     var date = new Date();
     var offset = (date.getDay()+6)%7;
@@ -24,26 +24,15 @@ router.get('/7week',(req,res) => {
     var lastdayoftheweek = new Date(firstdayoftheweek.getFullYear(), firstdayoftheweek.getMonth(), firstdayoftheweek.getDate()+6);
     console.log(firstdayoftheweek);
     Activity.find().where( { Date: {$gte: firstdayoftheweek, $lte: lastdayoftheweek}})
-    /* Activity.aggregate(
-        {$match: 
-            { Date: {$gte: firstdayoftheweek, $lte: lastdayoftheweek}}
-        }) */
     .then(activities => res.json(activities))
     .catch(err => res.status(400).json('Error: ' + err)); 
 });
 
-/* GET somme des activités de course pour le mois présent*/
+/* GET somme des activités de course pour le mois présent (Widget Buts)*/
 router.get('/sumrun',(req,res) => {
     var date = new Date();
     var firstday = new Date(date.getFullYear(), date.getMonth(),1);
     var lastday = new Date(date.getFullYear(), date.getMonth() +1, 0);
-    var offset = (date.getDay()+6)%7;
-    var firstdayoftheweek = new Date(date.getFullYear(), date.getMonth(), date.getDate()-offset+1);
-    var lastdayoftheweek = new Date(firstdayoftheweek.getFullYear(), firstdayoftheweek.getMonth(), firstdayoftheweek.getDate()+6);
-    console.log(firstday);
-    console.log(lastday);
-    console.log(firstdayoftheweek);
-    console.log(lastdayoftheweek);
     Activity.aggregate([
         {$match: {
             $and : [
@@ -58,8 +47,33 @@ router.get('/sumrun',(req,res) => {
     .catch(err => res.status(400).json('Error: ' + err)); 
 });
 
-/* GET somme des activités de velo pour le mois présent*/
+/* GET la somme des distances de natation sur la semaine d'avant (Widget Statut d'Entrainement)*/
+router.get('/sumrunweek',(req,res) => {
+    var date = new Date();
+    var offset = (date.getDay()+6)%7;
+    var last = new Date(date.getFullYear(), date.getMonth(), date.getDate()-offset);
+    var first = new Date(last.getFullYear(), last.getMonth(), last.getDate()-6);
+    console.log(first);
+    console.log(last);
+    Activity.aggregate([
+        {$match: {
+            $and : [
+                { Type: 'course'}, 
+                { Date: {$gte: first, $lte: last}}
+            ]
+        }
+            },
+        {$group: {_id: null, Distance: { $sum: "$Distance"}}},
+    ])
+    .then(activities => res.json(activities))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
+/* GET somme des activités de velo pour le mois présent (Widget Buts)*/
 router.get('/sumbike',(req,res) => {
+    var date = new Date();
+    var firstday = new Date(date.getFullYear(), date.getMonth(),1);
+    var lastday = new Date(date.getFullYear(), date.getMonth() +1, 0);
     Activity.aggregate([
         {$match: {
             $and : [
@@ -74,8 +88,33 @@ router.get('/sumbike',(req,res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-/* GET somme des activités de natation pour le mois présent*/
+/* GET la somme des distances de natation sur la semaine d'avant (Widget Statut d'Entrainement)*/
+router.get('/sumbikeweek',(req,res) => {
+    var date = new Date();
+    var offset = (date.getDay()+6)%7;
+    var last = new Date(date.getFullYear(), date.getMonth(), date.getDate()-offset);
+    var first = new Date(last.getFullYear(), last.getMonth(), last.getDate()-6);
+    console.log(first);
+    console.log(last);
+    Activity.aggregate([
+        {$match: {
+            $and : [
+                { Type: 'velo'}, 
+                { Date: {$gte: first, $lte: last}}
+            ]
+        }
+            },
+        {$group: {_id: null, Distance: { $sum: "$Distance"}}},
+    ])
+    .then(activities => res.json(activities))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
+/* GET somme des activités de natation pour le mois présent (Widget Buts)*/
 router.get('/sumswim',(req,res) => {
+    var date = new Date();
+    var firstday = new Date(date.getFullYear(), date.getMonth(),1);
+    var lastday = new Date(date.getFullYear(), date.getMonth() +1, 0);
     Activity.aggregate([
         {$match: {
             $and : [
@@ -90,15 +129,57 @@ router.get('/sumswim',(req,res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-/* POST ajout d'une activity*/
+/* GET la somme des distances de natation sur la semaine d'avant (Widget Statut d'Entrainement)*/
+router.get('/sumswimweek',(req,res) => {
+    var date = new Date();
+    var offset = (date.getDay()+6)%7;
+    var last = new Date(date.getFullYear(), date.getMonth(), date.getDate()-offset);
+    var first = new Date(last.getFullYear(), last.getMonth(), last.getDate()-6);
+    Activity.aggregate([
+        {$match: {
+            $and : [
+                { Type: 'natation'}, 
+                { Date: {$gte: first, $lte: last}}
+            ]
+        }
+            },
+        {$group: {_id: null, Distance: { $sum: "$Distance"}}},
+    ])
+    .then(activities => res.json(activities))
+    .catch(err => res.status(400).json('Error: ' + err));
+});
+
+/* GET Record Bike (Widget Records Personnels) */
+router.get('/BikeRecord', (req,res) => {
+    Activity.find().where({Type: 'velo'}).sort({Vitesse_moy: 1}).limit(1)
+    .then(activities => res.json(activities))
+    .catch(err => res.status(400).json('Error: ' + err));
+})
+
+/* GET Record Run (Widget Records Personnels) */
+router.get('/RunRecord', (req,res) => {
+    Activity.find().where({Type: 'course'}).sort({Vitesse_moy: 1}).limit(1)
+    .then(activities => res.json(activities))
+    .catch(err => res.status(400).json('Error: ' + err));
+})
+
+/* GET Record Swim (Widget Records Personnels) */
+router.get('/SwimRecord', (req,res) => {
+    Activity.find().where({Type: 'natation'}).sort({Vitesse_moy: 1}).limit(1)
+    .then(activities => res.json(activities))
+    .catch(err => res.status(400).json('Error: ' + err));
+})
+
+
+/* POST ajout d'une activity (Widget Ajout Activité)*/
 router.post('/add',(req, res) => {
     const ID_Activity = String(req.body.ID_Activity);
     const ID_User = String(req.body.ID_User);
     const Type = String(req.body.Type);
     const Lieu = String(req.body.Lieu);
     const Distance = String(req.body.Distance);
-    const Vitesse_max = String(req.body.Vitesse_Max);
-    const Vitesse_moy = String(req.body.Vitesse_Moy);
+    const Vitesse_max = String(req.body.Vitesse_max);
+    const Vitesse_moy = String(req.body.Vitesse_moy);
     const Temps = String(req.body.Temps);
     const Calories = String(req.body.Calories);
     const Denivele = String(req.body.Denivele);

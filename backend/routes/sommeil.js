@@ -9,7 +9,7 @@ router.get('/',(req,res) =>{
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
-/* GET last sommeil */
+/* GET last sommeil (Widget Analyse Sommeil)*/
 router.get('/lastsleep',(req,res) =>{
     Sommeil.findOne({}).sort({$natural: -1}).limit(1)
         .then(sommeil => res.json(sommeil))

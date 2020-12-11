@@ -17,7 +17,7 @@ router.route('/_id').get((req,res) =>{
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
-/* POST update des goals*/
+/* POST update des goals (Widget Update Goal)*/
 router.post('/update/:id', (req, res) =>{
     Goal.findById(req.params.id)
     .then(goal => {
