@@ -17,31 +17,6 @@ router.route('/_id').get((req,res) =>{
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
-/* POST update du goal velo (Widget Update Goal)*/
-router.post('/update_velo', (req, res) =>{
-    Goal.find()
-    .then(goal => {
-        goal.velo_goal = req.body.velo_goal;
-
-        goal.save()
-            .then(() => res.json('Goal Velo updated !'))
-            .catch(err => res.status(400).json('Error: '+err));
-    })
-    .catch(err => res.status(400).json('Error: '+err));
-});
-
-/* POST update du goal course (Widget Update Goal)*/
-router.post('/update_course', (req, res) =>{
-    Goal.find()
-    .then(goal => {
-        goal.course_goal = req.body.course_goal;
-
-        goal.save()
-            .then(() => res.json('Goal Course updated !'))
-            .catch(err => res.status(400).json('Error: '+err));
-    })
-    .catch(err => res.status(400).json('Error: '+err));
-});
 
 /* POST update du goal natation (Widget Update Goal)*/
 router.post('/update_natation', (req, res) =>{
