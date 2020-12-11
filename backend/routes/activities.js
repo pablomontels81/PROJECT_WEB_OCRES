@@ -23,7 +23,7 @@ router.get('/7week',(req,res) => {
     var firstdayoftheweek = new Date(date.getFullYear(), date.getMonth(), date.getDate()-offset);
     var lastdayoftheweek = new Date(firstdayoftheweek.getFullYear(), firstdayoftheweek.getMonth(), firstdayoftheweek.getDate()+6);
     console.log(firstdayoftheweek);
-    Activity.find().where( { Date: {$gte: firstdayoftheweek, $lte: lastdayoftheweek}})
+    Activity.find().where( { date: {$gte: firstdayoftheweek, $lte: lastdayoftheweek}})
     .then(activities => res.json(activities))
     .catch(err => res.status(400).json('Error: ' + err)); 
 });
@@ -37,7 +37,7 @@ router.get('/sumrun',(req,res) => {
         {$match: {
             $and : [
                 { Type: 'course'}, 
-                { Date: {$gte: firstday, $lte: lastday}}
+                { date: {$gte: firstday, $lte: lastday}}
             ]
         }
             },
@@ -59,7 +59,7 @@ router.get('/sumrunweek',(req,res) => {
         {$match: {
             $and : [
                 { Type: 'course'}, 
-                { Date: {$gte: first, $lte: last}}
+                { date: {$gte: first, $lte: last}}
             ]
         }
             },
@@ -78,7 +78,7 @@ router.get('/sumbike',(req,res) => {
         {$match: {
             $and : [
                 { Type: 'velo'}, 
-                { Date: {$gte: firstday, $lte: lastday}}
+                { date: {$gte: firstday, $lte: lastday}}
             ]
         }
             },
@@ -100,7 +100,7 @@ router.get('/sumbikeweek',(req,res) => {
         {$match: {
             $and : [
                 { Type: 'velo'}, 
-                { Date: {$gte: first, $lte: last}}
+                { date: {$gte: first, $lte: last}}
             ]
         }
             },
@@ -119,7 +119,7 @@ router.get('/sumswim',(req,res) => {
         {$match: {
             $and : [
                 { Type: 'natation'}, 
-                { Date: {$gte: firstday, $lte: lastday}}
+                { date: {$gte: firstday, $lte: lastday}}
             ]
         }
             },
@@ -139,7 +139,7 @@ router.get('/sumswimweek',(req,res) => {
         {$match: {
             $and : [
                 { Type: 'natation'}, 
-                { Date: {$gte: first, $lte: last}}
+                { date: {$gte: first, $lte: last}}
             ]
         }
             },
@@ -260,7 +260,7 @@ router.post('/add',(req, res) => {
     const Calories = String(req.body.Calories);
     const Denivele = String(req.body.Denivele);
     const Map = String(req.body.Map);
-    const Date = Date.parse(req.body.Date);
+    const date = Date.parse(req.body.Date);
 
     const newActivity = new Activity({
         ID_Activity,
@@ -274,7 +274,7 @@ router.post('/add',(req, res) => {
         Calories,
         Denivele,
         Map,
-        Date,
+        date,
     });
 
     newActivity.save()

@@ -37,7 +37,7 @@ class Resultats extends React.Component {
             Calories: '',
             Denivele: '',
             Map: '',
-            Date: new Date(),
+            date: new Date(),
         }
     }
 
@@ -95,9 +95,9 @@ class Resultats extends React.Component {
         });
     }
 
-    onChangeDate(Date) {
+    onChangeDate(date) {
         this.setState({
-            Date: Date
+            date: date
         });
     }
 
@@ -114,7 +114,7 @@ class Resultats extends React.Component {
             Calories: this.state.Calories,
             Denivele: this.state.Denivele,
             Map: this.state.Map,
-            Date: this.state.Date
+            date: this.state.date
         }
 
         console.log(resultats);
@@ -151,7 +151,7 @@ class Resultats extends React.Component {
                                     </div>
                                 </div>
 
-                                <p className="titre">Date :&emsp;&emsp;<DatePicker selected={this.state.Date} onChange={this.onChangeDate} /></p>
+                                <p className="titre">Date :&emsp;&emsp;<DatePicker selected={this.state.date} onChange={this.onChangeDate} /></p>
                                 
                                 <p className="titre">Lieu :&nbsp;<input type="text" className="Input1" name="lieu" className="entree" value={this.state.Lieu} onChange={this.onChangeLieu}/></p>
                                   
