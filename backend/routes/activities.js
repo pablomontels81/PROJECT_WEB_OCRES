@@ -149,23 +149,99 @@ router.get('/sumswimweek',(req,res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-/* GET Record Bike (Widget Records Personnels) */
-router.get('/BikeRecord', (req,res) => {
-    Activity.find().where({Type: 'velo'}).sort({Vitesse_moy: 1}).limit(1)
+/* GET Record Bike 20km(Widget Records Personnels) */
+router.get('/20KBikeRecord', (req,res) => {
+    Activity.aggregate([
+        {$match: {
+            $and : [
+                { Type: 'velo'},
+                { Distance: {$gte: 20}}
+            ]
+        }},
+        {$sort: {Vitesse_moy: 1}},
+        {$limit: 1},
+    ])
     .then(activities => res.json(activities))
     .catch(err => res.status(400).json('Error: ' + err));
 })
 
-/* GET Record Run (Widget Records Personnels) */
-router.get('/RunRecord', (req,res) => {
-    Activity.find().where({Type: 'course'}).sort({Vitesse_moy: 1}).limit(1)
+/* GET Record Bike 40km(Widget Records Personnels) */
+router.get('/40KBikeRecord', (req,res) => {
+    Activity.aggregate([
+        {$match: {
+            $and : [
+                { Type: 'velo'},
+                { Distance: {$gte: 40}}
+            ]
+        }},
+        {$sort: {Vitesse_moy: 1}},
+        {$limit: 1},
+    ])
     .then(activities => res.json(activities))
     .catch(err => res.status(400).json('Error: ' + err));
 })
 
-/* GET Record Swim (Widget Records Personnels) */
-router.get('/SwimRecord', (req,res) => {
-    Activity.find().where({Type: 'natation'}).sort({Vitesse_moy: 1}).limit(1)
+/* GET Record Run 5km(Widget Records Personnels) */
+router.get('/5KRunRecord', (req,res) => {
+    Activity.aggregate([
+        {$match: {
+            $and : [
+                { Type: 'course'},
+                { Distance: {$gte: 5}}
+            ]
+        }},
+        {$sort: {Vitesse_moy: 1}},
+        {$limit: 1},
+    ])
+    .then(activities => res.json(activities))
+    .catch(err => res.status(400).json('Error: ' + err));
+})
+
+/* GET Record Run 10km(Widget Records Personnels) */
+router.get('/10KRunRecord', (req,res) => {
+    Activity.aggregate([
+        {$match: {
+            $and : [
+                { Type: 'course'},
+                { Distance: {$gte: 10}}
+            ]
+        }},
+        {$sort: {Vitesse_moy: 1}},
+        {$limit: 1},
+    ])
+    .then(activities => res.json(activities))
+    .catch(err => res.status(400).json('Error: ' + err));
+})
+
+
+/* GET Record Swim 400m(Widget Records Personnels) */
+router.get('/400MSwimRecord', (req,res) => {
+    Activity.aggregate([
+        {$match: {
+            $and : [
+                { Type: 'natation'},
+                { Distance: {$gte: 0.4}}
+            ]
+        }},
+        {$sort: {Vitesse_moy: 1}},
+        {$limit: 1},
+    ])
+    .then(activities => res.json(activities))
+    .catch(err => res.status(400).json('Error: ' + err));
+})
+
+/* GET Record Swim 1km(Widget Records Personnels) */
+router.get('/400MSwimRecord', (req,res) => {
+    Activity.aggregate([
+        {$match: {
+            $and : [
+                { Type: 'natation'},
+                { Distance: {$gte: 1}}
+            ]
+        }},
+        {$sort: {Vitesse_moy: 1}},
+        {$limit: 1},
+    ])
     .then(activities => res.json(activities))
     .catch(err => res.status(400).json('Error: ' + err));
 })
