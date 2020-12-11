@@ -28,7 +28,7 @@ router.get('/7week',(req,res) => {
     .catch(err => res.status(400).json('Error: ' + err)); 
 });
 
-/* GET somme des activités de course pour le mois présent (Widget Buts)*/
+/* GET la somme des activités de course pour le mois présent (Widget Buts)*/
 router.get('/sumrun',(req,res) => {
     var date = new Date();
     var firstday = new Date(date.getFullYear(), date.getMonth(),1);
@@ -69,7 +69,7 @@ router.get('/sumrunweek',(req,res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-/* GET somme des activités de velo pour le mois présent (Widget Buts)*/
+/* GET la somme des activités de velo pour le mois présent (Widget Buts)*/
 router.get('/sumbike',(req,res) => {
     var date = new Date();
     var firstday = new Date(date.getFullYear(), date.getMonth(),1);
