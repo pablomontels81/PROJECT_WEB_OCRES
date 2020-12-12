@@ -19,33 +19,278 @@ class TotDistance extends React.PureComponent {
 		  velo : "",
 		  course : "",
 		  natation : "",
-		  monday_bike: "",
-		  monday_run: "",
-		  monday_swim: "",
-		  tuesday_bike: "",
-		  tuesday_run: "",
-		  tuesday_swim: "",
-		  wenesday_bike: "",
-		  wenesday_run: "",
-		  wenesday_swim: "",
-		  thursday_bike: "",
-		  thursday_run: "",
-		  thursday_swim: "",
-		  friday_bike: "",
-		  friday_run: "",
-		  friday_swim: "",
-		  saturday_bike: "",
-		  saturday_run: "",
-		  saturday_swim: "",
-		  sunday_bike: "",
-		  sunday_run: "",
-		  sunday_swim: "",
+		  monday_bike: "0",
+		  monday_run: "0",
+		  monday_swim: "0",
+		  tuesday_bike: "0",
+		  tuesday_run: "0",
+		  tuesday_swim: "0",
+		  wenesday_bike: "0",
+		  wenesday_run: "0",
+		  wenesday_swim: "0",
+		  thursday_bike: "0",
+		  thursday_run: "0",
+		  thursday_swim: "0",
+		  friday_bike: "0",
+		  friday_run: "0",
+		  friday_swim: "0",
+		  saturday_bike: "0",
+		  saturday_run: "0",
+		  saturday_swim: "0",
+		  sunday_bike: "0",
+		  sunday_run: "0",
+		  sunday_swim: "0",
 		};
 	}
 
 	async componentDidMount(){
 		try{
-			await axios.get('http://localhost:3001/activities/7week')
+			//Récupération de la distance de course parcouru ce lundi
+			await axios.get('http://localhost:3001/activities/sumrunmonday')
+			.then(response => {
+				if (response.data.length >0) {
+					this.setState({
+						monday_run: response.data[0].Distance
+					})
+				}
+			}).catch( err => {
+				console.log(err)
+			})
+			//Récupération de la distance de vélo parcouru ce lundi
+			await axios.get('http://localhost:3001/activities/sumbikemonday')
+			.then(response => {
+				if (response.data.length >0) {
+					this.setState({
+						monday_bike: response.data[0].Distance
+					})
+				}
+			}).catch( err => {
+				console.log(err)
+			})
+			//Récupération de la distance de natation parcouru ce lundi
+			await axios.get('http://localhost:3001/activities/sumswimmonday')
+			.then(response => {
+				if (response.data.length >0) {
+					this.setState({
+						monday_swim: response.data[0].Distance
+					})
+				}
+			}).catch( err => {
+				console.log(err)
+			})
+
+
+			//Récupération de la distance de course parcouru ce mardi
+			await axios.get('http://localhost:3001/activities/sumruntuesday')
+			.then(response => {
+				if (response.data.length >0) {
+					this.setState({
+						tuesday_run: response.data[0].Distance
+					})
+				}
+			}).catch( err => {
+				console.log(err)
+			})
+			//Récupération de la distance de vélo parcouru ce mardi
+			await axios.get('http://localhost:3001/activities/sumbiketuesday')
+			.then(response => {
+				if (response.data.length >0) {
+					this.setState({
+						tuesday_bike: response.data[0].Distance
+					})
+				}
+			}).catch( err => {
+				console.log(err)
+			})
+			//Récupération de la distance de natation parcouru ce mardi
+			await axios.get('http://localhost:3001/activities/sumswimtuesday')
+			.then(response => {
+				if (response.data.length >0) {
+					this.setState({
+						tuesday_swim: response.data[0].Distance
+					})
+				}
+			}).catch( err => {
+				console.log(err)
+			})
+
+
+			//Récupération de la distance de course parcouru ce mercredi
+			await axios.get('http://localhost:3001/activities/sumrunwednesday')
+			.then(response => {
+				if (response.data.length >0) {
+					this.setState({
+						wenesday_run: response.data[0].Distance
+					})
+				}
+			}).catch( err => {
+				console.log(err)
+			})
+			//Récupération de la distance de vélo parcouru ce mercredi
+			await axios.get('http://localhost:3001/activities/sumbikewednesday')
+			.then(response => {
+				if (response.data.length >0) {
+					this.setState({
+						wenesday_bike: response.data[0].Distance
+					})
+				}
+			}).catch( err => {
+				console.log(err)
+			})
+			//Récupération de la distance de natation parcouru ce mercredi
+			await axios.get('http://localhost:3001/activities/sumswimwednesday')
+			.then(response => {
+				if (response.data.length >0) {
+					this.setState({
+						wenesday_swim: response.data[0].Distance
+					})
+				}
+			}).catch( err => {
+				console.log(err)
+			})
+
+
+			//Récupération de la distance de course parcouru ce jeudi
+			await axios.get('http://localhost:3001/activities/sumrunthursday')
+			.then(response => {
+				if (response.data.length >0) {
+					this.setState({
+						thursday_run: response.data[0].Distance
+					})
+				}
+			}).catch( err => {
+				console.log(err)
+			})
+			//Récupération de la distance de vélo parcouru ce jeudi
+			await axios.get('http://localhost:3001/activities/sumbikethursday')
+			.then(response => {
+				if (response.data.length >0) {
+					this.setState({
+						thursday_bike: response.data[0].Distance
+					})
+				}
+			}).catch( err => {
+				console.log(err)
+			})
+			//Récupération de la distance de natation parcouru ce jeudi
+			await axios.get('http://localhost:3001/activities/sumswimthursday')
+			.then(response => {
+				if (response.data.length >0) {
+					this.setState({
+						thursday_swim: response.data[0].Distance
+					})
+				}
+			}).catch( err => {
+				console.log(err)
+			})
+
+
+			//Récupération de la distance de course parcouru ce vendredi
+			await axios.get('http://localhost:3001/activities/sumrunfriday')
+			.then(response => {
+				if (response.data.length >0) {
+					this.setState({
+						friday_run: response.data[0].Distance
+					})
+				}
+			}).catch( err => {
+				console.log(err)
+			})
+			//Récupération de la distance de vélo parcouru ce vendredi
+			await axios.get('http://localhost:3001/activities/sumbikefriday')
+			.then(response => {
+				if (response.data.length >0) {
+					this.setState({
+						friday_bike: response.data[0].Distance
+					})
+				}
+			}).catch( err => {
+				console.log(err)
+			})
+			//Récupération de la distance de natation parcouru ce vendredi
+			await axios.get('http://localhost:3001/activities/sumswimfriday')
+			.then(response => {
+				if (response.data.length >0) {
+					this.setState({
+						friday_swim: response.data[0].Distance
+					})
+				}
+			}).catch( err => {
+				console.log(err)
+			})
+
+
+			//Récupération de la distance de course parcouru ce samedi
+			await axios.get('http://localhost:3001/activities/sumrunsaturday')
+			.then(response => {
+				if (response.data.length >0) {
+					this.setState({
+						saturday_run: response.data[0].Distance
+					})
+				}
+			}).catch( err => {
+				console.log(err)
+			})
+			//Récupération de la distance de vélo parcouru ce samedi
+			await axios.get('http://localhost:3001/activities/sumbikesaturday')
+			.then(response => {
+				if (response.data.length >0) {
+					this.setState({
+						saturday_bike: response.data[0].Distance
+					})
+				}
+			}).catch( err => {
+				console.log(err)
+			})
+			//Récupération de la distance de natation parcouru ce samedi
+			await axios.get('http://localhost:3001/activities/sumswimsaturday')
+			.then(response => {
+				if (response.data.length >0) {
+					this.setState({
+						saturday_swim: response.data[0].Distance
+					})
+				}
+			}).catch( err => {
+				console.log(err)
+			})
+
+
+			//Récupération de la distance de course parcouru ce dimanche 
+			await axios.get('http://localhost:3001/activities/sumrunsunday')
+			.then(response => {
+				if (response.data.length >0) {
+					this.setState({
+						sunday_run: response.data[0].Distance
+					})
+				}
+			}).catch( err => {
+				console.log(err)
+			})
+			//Récupération de la distance de vélo parcouru ce dimanche
+			await axios.get('http://localhost:3001/activities/sumbikesunday')
+			.then(response => {
+				if (response.data.length >0) {
+					this.setState({
+						sunday_bike: response.data[0].Distance
+					})
+				}
+			}).catch( err => {
+				console.log(err)
+			})
+			//Récupération de la distance de natation parcouru ce dimanche
+			await axios.get('http://localhost:3001/activities/sumswimsunday')
+			.then(response => {
+				if (response.data.length >0) {
+					this.setState({
+						sunday_swim: response.data[0].Distance
+					})
+				}
+			}).catch( err => {
+				console.log(err)
+			})
+		}
+		catch (err){
+			console.log(err)
 		}
 	}
 
@@ -113,25 +358,25 @@ class TotDistance extends React.PureComponent {
 	render() {
 		const data = [
 			{
-			  name: 'Lundi', velo: 4000, natation: 2400, course: 2400,
+			  name: 'Lundi', velo: this.state.monday_bike, natation: this.state.monday_swim, course: this.state.monday_run,
 			},
 			{
-			  name: 'Mardi', velo: 3000, natation: 1398, course: 2210,
+			  name: 'Mardi', velo: this.state.tuesday_bike, natation: this.state.tuesday_swim, course: this.state.tuesday_run,
 			},
 			{
-			  name: 'Mercredi', velo: 2000, natation: 9800, course: 2290,
+			  name: 'Mercredi', velo: this.state.wenesday_bike, natation: this.state.wenesday_swim, course: this.state.wenesday_run,
 			},
 			{
-			  name: 'Jeudi', velo: 2780, natation: 3908, course: 2000,
+			  name: 'Jeudi', velo: this.state.thursday_bike, natation: this.state.thursday_swim, course: this.state.thursday_run,
 			},
 			{
-			  name: 'Vendredi', velo: 1890, natation: 4800, course: 2181,
+			  name: 'Vendredi', velo: this.state.friday_bike, natation: this.state.friday_swim, course: this.friday_run,
 			},
 			{
-			  name: 'Samedi', velo: 2390, natation: 3800, course: 2500,
+			  name: 'Samedi', velo: this.state.saturday_bike, natation: this.state.saturday_swim, course: this.state.saturday_run,
 			},
 			{
-			  name: 'Dimanche', velo: 3490, natation: 4300, course: 2100,
+			  name: 'Dimanche', velo: this.state.sunday_bike, natation: this.state.sunday_swim, course: this.state.sunday_run,
 			},
 		  ];
 		  

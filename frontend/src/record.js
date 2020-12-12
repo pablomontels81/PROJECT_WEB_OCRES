@@ -17,22 +17,22 @@ class Record extends React.Component {
 		  name : "Records Personnels",
 		  distanceVelo1 : "20",
 		  allureVelo1: "",
-		  tempsVelo1 : "31 min 10 sec",
+		  tempsVelo1 : "",
 		  distanceVelo2 : "40",
 		  allureVelo2: "",
-		  tempsVelo2 : "1h 02min 35sec",
+		  tempsVelo2 : "",
 		  distanceCourse1 : "5",
 		  allureCourse1: "",
-		  tempsCourse1 : "18min 45sec",
+		  tempsCourse1 : "",
 		  distanceCourse2 : "10",
 		  allureCourse2: "",
-		  tempsCourse2 : "42min 35sec",
+		  tempsCourse2 : "",
 		  distanceNatation1 : "0.400",
 		  allureNat1: "",
-		  tempsNatation1 : "16min 10 sec",
+		  tempsNatation1 : "",
 		  distanceNatation2 : "1",
 		  allureNat2: "",
-		  tempsNatation2 : "40min 0sec",
+		  tempsNatation2 : "",
 		};
 	}
 
@@ -67,7 +67,6 @@ class Record extends React.Component {
 						this.setState({
 							allureCourse1: response.data[0].Vitesse_moy,
 						})
-						console.log(this.state.velo_goal)
 					}
 				}).catch( err => {
 					console.log(err)
@@ -79,7 +78,6 @@ class Record extends React.Component {
 						this.setState({
 							allureCourse2: response.data[0].Vitesse_moy,
 						})
-						console.log(this.state.velo_goal)
 					}
 				}).catch( err => {
 					console.log(err)
@@ -91,7 +89,6 @@ class Record extends React.Component {
 						this.setState({
 							allureNat1: response.data[0].Vitesse_moy,
 						})
-						console.log(this.state.velo_goal)
 					}
 				}).catch( err => {
 					console.log(err)
@@ -103,7 +100,6 @@ class Record extends React.Component {
 						this.setState({
 							allureNat2: response.data[0].Vitesse_moy,
 						})
-						console.log(this.state.velo_goal)
 					}
 				}).catch( err => {
 					console.log(err)
@@ -114,9 +110,11 @@ class Record extends React.Component {
 				tempsVelo2 : Math.round((parseInt(this.state.distanceVelo2,10)/parseInt(this.state.allureVelo2,10))*60),
 				tempsCourse1 : Math.round((parseInt(this.state.distanceCourse1,10)/parseInt(this.state.allureCourse1,10))*60),
 				tempsCourse2 : Math.round((parseInt(this.state.distanceCourse2,10)/parseInt(this.state.allureCourse2,10))*60),
-				tempsNatation1 : Math.round((parseInt(this.state.distanceNatation1,10)/parseInt(this.state.allureNat2,10))*60),
+				tempsNatation1 : Math.round((parseInt(this.state.distanceNatation1,10)/parseInt(this.state.allureNat1,10))*60),
 				tempsNatation2 : Math.round((parseInt(this.state.distanceNatation2,10)/parseInt(this.state.allureNat2,10))*60),
 			})
+
+			console.log(this.state);
 		}
 		catch(err){
 			console.log(err)

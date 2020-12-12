@@ -28,6 +28,428 @@ router.get('/7week',(req,res) => {
     .catch(err => res.status(400).json('Error: ' + err)); 
 });
 
+/* GET la somme des distance de course pour le lundi (Widget TotDistance)*/
+router.get('/sumrunmonday',(req,res) => {
+    var date = new Date();
+    var offset = (date.getDay()+6)%7;
+    var firstday = new Date(date.getFullYear(), date.getMonth(), date.getDate()-offset);
+    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+1);
+    Activity.aggregate([
+        {$match: {
+            $and : [
+                { Type: 'course'}, 
+                { date: {$gte: firstday, $lt: lastday}}
+            ]
+        }
+        },
+        {$group: {_id: null, Distance: { $sum: "$Distance"}}},
+    ])
+    .then(activities => res.json(activities))
+    .catch(err => res.status(400).json('Error: ' + err)); 
+});
+
+/* GET la somme des distance de velo pour le lundi (Widget TotDistance)*/
+router.get('/sumbikemonday',(req,res) => {
+    var date = new Date();
+    var offset = (date.getDay()+6)%7;
+    var firstday = new Date(date.getFullYear(), date.getMonth(), date.getDate()-offset);
+    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+1);
+    Activity.aggregate([
+        {$match: {
+            $and : [
+                { Type: 'velo'}, 
+                { date: {$gte: firstday, $lt: lastday}}
+            ]
+        }
+        },
+        {$group: {_id: null, Distance: { $sum: "$Distance"}}},
+    ])
+    .then(activities => res.json(activities))
+    .catch(err => res.status(400).json('Error: ' + err)); 
+});
+
+/* GET la somme des distance de natation pour le lundi (Widget TotDistance)*/
+router.get('/sumswimmonday',(req,res) => {
+    var date = new Date();
+    var offset = (date.getDay()+6)%7;
+    var firstday = new Date(date.getFullYear(), date.getMonth(), date.getDate()-offset);
+    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+1);
+    Activity.aggregate([
+        {$match: {
+            $and : [
+                { Type: 'natation'}, 
+                { date: {$gte: firstday, $lt: lastday}}
+            ]
+        }
+        },
+        {$group: {_id: null, Distance: { $sum: "$Distance"}}},
+    ])
+    .then(activities => res.json(activities))
+    .catch(err => res.status(400).json('Error: ' + err)); 
+});
+
+/* GET la somme des distance de course pour le mardi (Widget TotDistance)*/
+router.get('/sumruntuesday',(req,res) => {
+    var date = new Date();
+    var offset = (date.getDay()+6)%7;
+    var firstday = new Date(date.getFullYear(), date.getMonth(), date.getDate()-offset+1);
+    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+2);
+    Activity.aggregate([
+        {$match: {
+            $and : [
+                { Type: 'course'}, 
+                { date: {$gte: firstday, $lt: lastday}}
+            ]
+        }
+        },
+        {$group: {_id: null, Distance: { $sum: "$Distance"}}},
+    ])
+    .then(activities => res.json(activities))
+    .catch(err => res.status(400).json('Error: ' + err)); 
+});
+
+/* GET la somme des distance de velo pour le mardi (Widget TotDistance)*/
+router.get('/sumbiketuesday',(req,res) => {
+    var date = new Date();
+    var offset = (date.getDay()+6)%7;
+    var firstday = new Date(date.getFullYear(), date.getMonth(), date.getDate()-offset+1);
+    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+2);
+    Activity.aggregate([
+        {$match: {
+            $and : [
+                { Type: 'velo'}, 
+                { date: {$gte: firstday, $lt: lastday}}
+            ]
+        }
+        },
+        {$group: {_id: null, Distance: { $sum: "$Distance"}}},
+    ])
+    .then(activities => res.json(activities))
+    .catch(err => res.status(400).json('Error: ' + err)); 
+});
+
+/* GET la somme des distance de natation pour le mardi (Widget TotDistance)*/
+router.get('/sumswimtuesday',(req,res) => {
+    var date = new Date();
+    var offset = (date.getDay()+6)%7;
+    var firstday = new Date(date.getFullYear(), date.getMonth(), date.getDate()-offset+1);
+    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+2);
+    Activity.aggregate([
+        {$match: {
+            $and : [
+                { Type: 'natation'}, 
+                { date: {$gte: firstday, $lt: lastday}}
+            ]
+        }
+        },
+        {$group: {_id: null, Distance: { $sum: "$Distance"}}},
+    ])
+    .then(activities => res.json(activities))
+    .catch(err => res.status(400).json('Error: ' + err)); 
+});
+
+/* GET la somme des distance de course pour le mercredi (Widget TotDistance)*/
+router.get('/sumrunwednesday',(req,res) => {
+    var date = new Date();
+    var offset = (date.getDay()+6)%7;
+    var firstday = new Date(date.getFullYear(), date.getMonth(), date.getDate()-offset+2);
+    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+3);
+    Activity.aggregate([
+        {$match: {
+            $and : [
+                { Type: 'course'}, 
+                { date: {$gte: firstday, $lt: lastday}}
+            ]
+        }
+        },
+        {$group: {_id: null, Distance: { $sum: "$Distance"}}},
+    ])
+    .then(activities => res.json(activities))
+    .catch(err => res.status(400).json('Error: ' + err)); 
+});
+
+/* GET la somme des distance de velo pour le mercredi (Widget TotDistance)*/
+router.get('/sumbikewednesday',(req,res) => {
+    var date = new Date();
+    var offset = (date.getDay()+6)%7;
+    var firstday = new Date(date.getFullYear(), date.getMonth(), date.getDate()-offset+2);
+    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+3);
+    Activity.aggregate([
+        {$match: {
+            $and : [
+                { Type: 'velo'}, 
+                { date: {$gte: firstday, $lt: lastday}}
+            ]
+        }
+        },
+        {$group: {_id: null, Distance: { $sum: "$Distance"}}},
+    ])
+    .then(activities => res.json(activities))
+    .catch(err => res.status(400).json('Error: ' + err)); 
+});
+
+/* GET la somme des distance de natation pour le mercredi (Widget TotDistance)*/
+router.get('/sumswimwednesday',(req,res) => {
+    var date = new Date();
+    var offset = (date.getDay()+6)%7;
+    var firstday = new Date(date.getFullYear(), date.getMonth(), date.getDate()-offset+2);
+    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+3);
+    Activity.aggregate([
+        {$match: {
+            $and : [
+                { Type: 'natation'}, 
+                { date: {$gte: firstday, $lt: lastday}}
+            ]
+        }
+        },
+        {$group: {_id: null, Distance: { $sum: "$Distance"}}},
+    ])
+    .then(activities => res.json(activities))
+    .catch(err => res.status(400).json('Error: ' + err)); 
+});
+
+/* GET la somme des distance de course pour le jeudi (Widget TotDistance)*/
+router.get('/sumrunthursday',(req,res) => {
+    var date = new Date();
+    var offset = (date.getDay()+6)%7;
+    var firstday = new Date(date.getFullYear(), date.getMonth(), date.getDate()-offset+3);
+    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+4);
+    Activity.aggregate([
+        {$match: {
+            $and : [
+                { Type: 'course'}, 
+                { date: {$gte: firstday, $lt: lastday}}
+            ]
+        }
+        },
+        {$group: {_id: null, Distance: { $sum: "$Distance"}}},
+    ])
+    .then(activities => res.json(activities))
+    .catch(err => res.status(400).json('Error: ' + err)); 
+});
+
+/* GET la somme des distance de velo pour le jeudi (Widget TotDistance)*/
+router.get('/sumbikethursday',(req,res) => {
+    var date = new Date();
+    var offset = (date.getDay()+6)%7;
+    var firstday = new Date(date.getFullYear(), date.getMonth(), date.getDate()-offset+3);
+    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+4);
+    Activity.aggregate([
+        {$match: {
+            $and : [
+                { Type: 'velo'}, 
+                { date: {$gte: firstday, $lt: lastday}}
+            ]
+        }
+        },
+        {$group: {_id: null, Distance: { $sum: "$Distance"}}},
+    ])
+    .then(activities => res.json(activities))
+    .catch(err => res.status(400).json('Error: ' + err)); 
+});
+
+/* GET la somme des distance de natation pour le jeudi (Widget TotDistance)*/
+router.get('/sumswimthursday',(req,res) => {
+    var date = new Date();
+    var offset = (date.getDay()+6)%7;
+    var firstday = new Date(date.getFullYear(), date.getMonth(), date.getDate()-offset+3);
+    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+4);
+    Activity.aggregate([
+        {$match: {
+            $and : [
+                { Type: 'natation'}, 
+                { date: {$gte: firstday, $lt: lastday}}
+            ]
+        }
+        },
+        {$group: {_id: null, Distance: { $sum: "$Distance"}}},
+    ])
+    .then(activities => res.json(activities))
+    .catch(err => res.status(400).json('Error: ' + err)); 
+});
+
+/* GET la somme des distance de course pour le vendredi (Widget TotDistance)*/
+router.get('/sumrunfriday',(req,res) => {
+    var date = new Date();
+    var offset = (date.getDay()+6)%7;
+    var firstday = new Date(date.getFullYear(), date.getMonth(), date.getDate()-offset+4);
+    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+5);
+    Activity.aggregate([
+        {$match: {
+            $and : [
+                { Type: 'course'}, 
+                { date: {$gte: firstday, $lt: lastday}}
+            ]
+        }
+        },
+        {$group: {_id: null, Distance: { $sum: "$Distance"}}},
+    ])
+    .then(activities => res.json(activities))
+    .catch(err => res.status(400).json('Error: ' + err)); 
+});
+
+/* GET la somme des distance de velo pour le vendredi (Widget TotDistance)*/
+router.get('/sumbikefriday',(req,res) => {
+    var date = new Date();
+    var offset = (date.getDay()+6)%7;
+    var firstday = new Date(date.getFullYear(), date.getMonth(), date.getDate()-offset+4);
+    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+5);
+    Activity.aggregate([
+        {$match: {
+            $and : [
+                { Type: 'velo'}, 
+                { date: {$gte: firstday, $lt: lastday}}
+            ]
+        }
+        },
+        {$group: {_id: null, Distance: { $sum: "$Distance"}}},
+    ])
+    .then(activities => res.json(activities))
+    .catch(err => res.status(400).json('Error: ' + err)); 
+});
+
+/* GET la somme des distance de natation pour le vendredi (Widget TotDistance)*/
+router.get('/sumswimfriday',(req,res) => {
+    var date = new Date();
+    var offset = (date.getDay()+6)%7;
+    var firstday = new Date(date.getFullYear(), date.getMonth(), date.getDate()-offset+4);
+    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+5);
+    Activity.aggregate([
+        {$match: {
+            $and : [
+                { Type: 'natation'}, 
+                { date: {$gte: firstday, $lt: lastday}}
+            ]
+        }
+        },
+        {$group: {_id: null, Distance: { $sum: "$Distance"}}},
+    ])
+    .then(activities => res.json(activities))
+    .catch(err => res.status(400).json('Error: ' + err)); 
+});
+
+/* GET la somme des distance de course pour le samedi (Widget TotDistance)*/
+router.get('/sumrunsaturday',(req,res) => {
+    var date = new Date();
+    var offset = (date.getDay()+6)%7;
+    var firstday = new Date(date.getFullYear(), date.getMonth(), date.getDate()-offset+5);
+    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+6);
+    Activity.aggregate([
+        {$match: {
+            $and : [
+                { Type: 'course'}, 
+                { date: {$gte: firstday, $lt: lastday}}
+            ]
+        }
+        },
+        {$group: {_id: null, Distance: { $sum: "$Distance"}}},
+    ])
+    .then(activities => res.json(activities))
+    .catch(err => res.status(400).json('Error: ' + err)); 
+});
+
+/* GET la somme des distance de velo pour le samedi (Widget TotDistance)*/
+router.get('/sumbikesaturday',(req,res) => {
+    var date = new Date();
+    var offset = (date.getDay()+6)%7;
+    var firstday = new Date(date.getFullYear(), date.getMonth(), date.getDate()-offset+5);
+    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+6);
+    Activity.aggregate([
+        {$match: {
+            $and : [
+                { Type: 'velo'}, 
+                { date: {$gte: firstday, $lt: lastday}}
+            ]
+        }
+        },
+        {$group: {_id: null, Distance: { $sum: "$Distance"}}},
+    ])
+    .then(activities => res.json(activities))
+    .catch(err => res.status(400).json('Error: ' + err)); 
+});
+
+/* GET la somme des distance de natation pour le samedi (Widget TotDistance)*/
+router.get('/sumswimsaturday',(req,res) => {
+    var date = new Date();
+    var offset = (date.getDay()+6)%7;
+    var firstday = new Date(date.getFullYear(), date.getMonth(), date.getDate()-offset+5);
+    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+6);
+    Activity.aggregate([
+        {$match: {
+            $and : [
+                { Type: 'natation'}, 
+                { date: {$gte: firstday, $lt: lastday}}
+            ]
+        }
+        },
+        {$group: {_id: null, Distance: { $sum: "$Distance"}}},
+    ])
+    .then(activities => res.json(activities))
+    .catch(err => res.status(400).json('Error: ' + err)); 
+});
+
+/* GET la somme des distance de course pour le dimanche (Widget TotDistance)*/
+router.get('/sumrunsunday',(req,res) => {
+    var date = new Date();
+    var offset = (date.getDay()+6)%7;
+    var firstday = new Date(date.getFullYear(), date.getMonth(), date.getDate()-offset+6);
+    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+7);
+    Activity.aggregate([
+        {$match: {
+            $and : [
+                { Type: 'course'}, 
+                { date: {$gte: firstday, $lt: lastday}}
+            ]
+        }
+        },
+        {$group: {_id: null, Distance: { $sum: "$Distance"}}},
+    ])
+    .then(activities => res.json(activities))
+    .catch(err => res.status(400).json('Error: ' + err)); 
+});
+
+/* GET la somme des distance de velo pour le dimanche (Widget TotDistance)*/
+router.get('/sumbikesunday',(req,res) => {
+    var date = new Date();
+    var offset = (date.getDay()+6)%7;
+    var firstday = new Date(date.getFullYear(), date.getMonth(), date.getDate()-offset+6);
+    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+7);
+    Activity.aggregate([
+        {$match: {
+            $and : [
+                { Type: 'velo'}, 
+                { date: {$gte: firstday, $lt: lastday}}
+            ]
+        }
+        },
+        {$group: {_id: null, Distance: { $sum: "$Distance"}}},
+    ])
+    .then(activities => res.json(activities))
+    .catch(err => res.status(400).json('Error: ' + err)); 
+});
+
+/* GET la somme des distance de natation pour le dimanche (Widget TotDistance)*/
+router.get('/sumswimsunday',(req,res) => {
+    var date = new Date();
+    var offset = (date.getDay()+6)%7;
+    var firstday = new Date(date.getFullYear(), date.getMonth(), date.getDate()-offset+6);
+    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+7);
+    Activity.aggregate([
+        {$match: {
+            $and : [
+                { Type: 'natation'}, 
+                { date: {$gte: firstday, $lt: lastday}}
+            ]
+        }
+        },
+        {$group: {_id: null, Distance: { $sum: "$Distance"}}},
+    ])
+    .then(activities => res.json(activities))
+    .catch(err => res.status(400).json('Error: ' + err)); 
+});
+
+
+
 /* GET la somme des activités de course pour le mois présent (Widget Buts)*/
 router.get('/sumrun',(req,res) => {
     var date = new Date();
