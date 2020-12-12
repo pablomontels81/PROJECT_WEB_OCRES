@@ -40,7 +40,7 @@ router.get('/sumrun',(req,res) => {
                 { date: {$gte: firstday, $lte: lastday}}
             ]
         }
-            },
+        },
         {$group: {_id: null, Distance: { $sum: "$Distance"}}},
     ])
     .then(activities => res.json(activities))
@@ -158,7 +158,7 @@ router.get('/20KBikeRecord', (req,res) => {
                 { Distance: {$gte: 20}}
             ]
         }},
-        {$sort: {Vitesse_moy: 1}},
+        {$sort: {Vitesse_moy: -1}},
         {$limit: 1},
     ])
     .then(activities => res.json(activities))
@@ -174,7 +174,7 @@ router.get('/40KBikeRecord', (req,res) => {
                 { Distance: {$gte: 40}}
             ]
         }},
-        {$sort: {Vitesse_moy: 1}},
+        {$sort: {Vitesse_moy: -1}},
         {$limit: 1},
     ])
     .then(activities => res.json(activities))
@@ -190,7 +190,7 @@ router.get('/5KRunRecord', (req,res) => {
                 { Distance: {$gte: 5}}
             ]
         }},
-        {$sort: {Vitesse_moy: 1}},
+        {$sort: {Vitesse_moy: -1}},
         {$limit: 1},
     ])
     .then(activities => res.json(activities))
@@ -206,7 +206,7 @@ router.get('/10KRunRecord', (req,res) => {
                 { Distance: {$gte: 10}}
             ]
         }},
-        {$sort: {Vitesse_moy: 1}},
+        {$sort: {Vitesse_moy: -1}},
         {$limit: 1},
     ])
     .then(activities => res.json(activities))
@@ -215,7 +215,7 @@ router.get('/10KRunRecord', (req,res) => {
 
 
 /* GET Record Swim 400m(Widget Records Personnels) */
-router.get('/400MSwimRecord', (req,res) => {
+router.get('/SwimRecord1', (req,res) => {
     Activity.aggregate([
         {$match: {
             $and : [
@@ -223,7 +223,7 @@ router.get('/400MSwimRecord', (req,res) => {
                 { Distance: {$gte: 0.4}}
             ]
         }},
-        {$sort: {Vitesse_moy: 1}},
+        {$sort: {Vitesse_moy: -1}},
         {$limit: 1},
     ])
     .then(activities => res.json(activities))
@@ -231,7 +231,7 @@ router.get('/400MSwimRecord', (req,res) => {
 })
 
 /* GET Record Swim 1km(Widget Records Personnels) */
-router.get('/400MSwimRecord', (req,res) => {
+router.get('/SwimRecord2', (req,res) => {
     Activity.aggregate([
         {$match: {
             $and : [
@@ -239,7 +239,7 @@ router.get('/400MSwimRecord', (req,res) => {
                 { Distance: {$gte: 1}}
             ]
         }},
-        {$sort: {Vitesse_moy: 1}},
+        {$sort: {Vitesse_moy: -1}},
         {$limit: 1},
     ])
     .then(activities => res.json(activities))

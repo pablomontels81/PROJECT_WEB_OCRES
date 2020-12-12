@@ -28,7 +28,7 @@ class Resultats extends React.Component {
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
-            ID_Activity: '',
+            ID_activity: '',
             ID_User: '1',
             Type: '',
             Lieu: '',
@@ -115,7 +115,7 @@ class Resultats extends React.Component {
         e.preventDefault();
 
         const resultats = {
-            ID_Activity: this.state.ID_Activity,
+            id_activity: this.state.id_activity,
             ID_User: this.state.ID_User,
             Type: this.state.Type,
             Lieu: this.state.Lieu,

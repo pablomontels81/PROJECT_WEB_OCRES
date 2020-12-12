@@ -29,7 +29,7 @@ class Goals extends React.Component {
 		  natation_distance: "",};
 	}
 
-	 async componentDidMount() {
+	async componentDidMount() {
 		//Récupération des BUts fixés
 		try{
 			console.log(this.state)
@@ -79,6 +79,7 @@ class Goals extends React.Component {
 				}).catch( err => {
 					console.log(err)
 				})
+			
 			
 			//Calcul % Velo
 			this.setState({

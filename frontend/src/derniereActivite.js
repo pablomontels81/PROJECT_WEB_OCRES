@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 import './derniereActivite.css';
 import Titre from './Titre';
@@ -22,9 +23,33 @@ class DerniereActivite extends React.Component {
 		temps : "5:11",
 		calories : "40",
 		denivele_positif : "120",
-		map : "https://www.google.com/maps/d/u/0/embed?mid=17dB14CBeEUoFPB60kdz9K4jnrJzULQTg"
+		map : "https://www.google.com/maps/d/u/0/embed?mid=17dB14CBeEUoFPB60kdz9K4jnrJzULQTg",
 		};
 	}
+
+	componentDidMount() {
+        axios.get('http://localhost:3001/activities/lastact')
+            .then(response =>{
+                const temp1 = response.data.Lieu;
+				this.setState({location: temp1});
+				const temp2 = response.data.Type;
+				this.setState({name_activite: temp2});
+				const temp3 = response.data.Distance;
+				this.setState({distance: temp3});
+				const temp4 = response.data.Vitesse_moy;
+				this.setState({allure: temp4});
+				const temp5 = response.data.Vitesse_max;
+				this.setState({allure_max: temp5});
+				const temp6 = response.data.Temps;
+				this.setState({temps: temp6});
+				const temp7 = response.data.Calories;
+				this.setState({calories: temp7});
+				const temp8 = response.data.Denivele;
+				this.setState({denivele_positif: temp8});
+				const temp9 = response.data.Map;
+				this.setState({map: temp9});
+            });
+    }
 
 
 	render(){

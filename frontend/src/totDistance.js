@@ -2,36 +2,12 @@ import React, { PureComponent } from 'react';
 import {
   BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer,
 } from 'recharts';
+import axios from 'axios';
 
 
 import './totDistance.css';
 import Titre from './Titre';
-
-const data = [
-	{
-	  name: 'Lundi', velo: 4000, natation: 2400, course: 2400,
-	},
-	{
-	  name: 'Mardi', velo: 3000, natation: 1398, course: 2210,
-	},
-	{
-	  name: 'Mercredi', velo: 2000, natation: 9800, course: 2290,
-	},
-	{
-	  name: 'Jeudi', velo: 2780, natation: 3908, course: 2000,
-	},
-	{
-	  name: 'Vendredi', velo: 1890, natation: 4800, course: 2181,
-	},
-	{
-	  name: 'Samedi', velo: 2390, natation: 3800, course: 2500,
-	},
-	{
-	  name: 'Dimanche', velo: 3490, natation: 4300, course: 2100,
-	},
-  ];
-
-
+import Axios from 'axios';
 
 class TotDistance extends React.PureComponent {
 
@@ -42,7 +18,35 @@ class TotDistance extends React.PureComponent {
 		  name : "Distance Totale",
 		  velo : "",
 		  course : "",
-		  natation : ""};
+		  natation : "",
+		  monday_bike: "",
+		  monday_run: "",
+		  monday_swim: "",
+		  tuesday_bike: "",
+		  tuesday_run: "",
+		  tuesday_swim: "",
+		  wenesday_bike: "",
+		  wenesday_run: "",
+		  wenesday_swim: "",
+		  thursday_bike: "",
+		  thursday_run: "",
+		  thursday_swim: "",
+		  friday_bike: "",
+		  friday_run: "",
+		  friday_swim: "",
+		  saturday_bike: "",
+		  saturday_run: "",
+		  saturday_swim: "",
+		  sunday_bike: "",
+		  sunday_run: "",
+		  sunday_swim: "",
+		};
+	}
+
+	async componentDidMount(){
+		try{
+			await axios.get('http://localhost:3001/activities/7week')
+		}
 	}
 
 	
@@ -107,6 +111,30 @@ class TotDistance extends React.PureComponent {
     }
 	
 	render() {
+		const data = [
+			{
+			  name: 'Lundi', velo: 4000, natation: 2400, course: 2400,
+			},
+			{
+			  name: 'Mardi', velo: 3000, natation: 1398, course: 2210,
+			},
+			{
+			  name: 'Mercredi', velo: 2000, natation: 9800, course: 2290,
+			},
+			{
+			  name: 'Jeudi', velo: 2780, natation: 3908, course: 2000,
+			},
+			{
+			  name: 'Vendredi', velo: 1890, natation: 4800, course: 2181,
+			},
+			{
+			  name: 'Samedi', velo: 2390, natation: 3800, course: 2500,
+			},
+			{
+			  name: 'Dimanche', velo: 3490, natation: 4300, course: 2100,
+			},
+		  ];
+		  
 		return (
 			<div className="totDistanceBox">
 				<Titre name={this.state.name}/>
