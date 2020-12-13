@@ -41,7 +41,9 @@ class Goals extends React.Component {
 							course_goal: response.data[0].course_goal,
 							natation_goal: response.data[0].natation_goal,
 						})
-						console.log(this.state.velo_goal)
+						console.log(this.state.velo_goal);
+						console.log(this.state.course_goal);
+						console.log(this.state.natation_goal);
 					}
 				}).catch( err => {
 					console.log(err)
@@ -53,6 +55,7 @@ class Goals extends React.Component {
 						this.setState({
 							velo_distance: response.data[0].Distance
 						})
+						console.log(this.state.velo_distance);
 					}
 				}).catch( err => {
 					console.log(err)
@@ -64,6 +67,7 @@ class Goals extends React.Component {
 						this.setState({
 							course_distance: response.data[0].Distance
 						})
+						console.log(this.state.course_distance);
 					}
 				}).catch( err => {
 					console.log(err)
@@ -75,6 +79,7 @@ class Goals extends React.Component {
 						this.setState({
 							natation_distance: response.data[0].Distance
 						})
+						console.log(this.state.natation_distance);
 					}
 				}).catch( err => {
 					console.log(err)

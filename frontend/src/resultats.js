@@ -47,7 +47,7 @@ class Resultats extends React.Component {
         axios.get('http://localhost:3001/activities/lastact')
             .then(response =>{
                 const temp = parseInt(response.data.ID_Activity, 10) +1.0;
-                this.setState({ID_Activity: temp})
+                this.setState({ID_activity: temp})
             });
     }
 
@@ -115,7 +115,7 @@ class Resultats extends React.Component {
         e.preventDefault();
 
         const resultats = {
-            id_activity: this.state.id_activity,
+            ID_activity: this.state.ID_activity,
             ID_User: this.state.ID_User,
             Type: this.state.Type,
             Lieu: this.state.Lieu,
@@ -131,8 +131,8 @@ class Resultats extends React.Component {
 
         console.log(resultats);
 
-        axios.post('http://localhost:3001/activities/add', resultats)
-            .then(res => console.log(res.data));
+        /*axios.post('http://localhost:3001/activities/add', resultats)
+            .then(res => console.log(res.data));*/
 
         //window.location = "/formulaire";
     }

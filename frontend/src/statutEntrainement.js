@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 import './statutEntrainement.css';
 import Titre from './Titre';
@@ -11,11 +12,14 @@ class StatutEntrainement extends React.Component {
 		super(props);
 		this.state = {
 		name : "Statut d'Entraînement",
-		statut : "Productif",
-		sport : "moyen",
-		charge : "élevée"
+		statut : "",
+		sport : "",
+		charge : "",
+		sumrun: "",
 		};
 	}
+
+	
 
 	render(){
 		return (
