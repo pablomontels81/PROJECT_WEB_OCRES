@@ -6,7 +6,7 @@ const activitiesSchema = new mongoose.Schema({
         required: true,
     }, 
     ID_User: {
-        type: String,
+        type: Number,
         required: false,
     },
     Type: {
@@ -18,15 +18,15 @@ const activitiesSchema = new mongoose.Schema({
         required: false,
     },
     Distance: {
-        type: String,
+        type: Number,
         required: false,
     },
     Vitesse_max: {
-        type: String,
+        type: Number,
         required: false,
     },
     Vitesse_moy: {
-        type: String,
+        type: Number,
         required: false,
     },
     Temps: {
@@ -34,11 +34,11 @@ const activitiesSchema = new mongoose.Schema({
         required: false,
     },
     Calories: {
-        type: String,
+        type: Number,
         required: false,
     },
     Denivele: {
-        type: String,
+        type: Number,
         required: false,
     },
     Map: {

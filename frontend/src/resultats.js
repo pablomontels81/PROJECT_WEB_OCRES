@@ -28,7 +28,7 @@ class Resultats extends React.Component {
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
-            ID_activity: '',
+            ID_activity: 0,
             ID_User: 1,
             Type: '',
             Lieu: '',
@@ -47,10 +47,10 @@ class Resultats extends React.Component {
         try{
             await axios.get('http://localhost:3001/activities/lastact')
             .then(response =>{
-                const temp = parseInt(response.data.ID_Activity,10)+1;
+                const temp = parseInt(response.data.ID_Activity,10)+1.0;
                 console.log(response.data.ID_Activity);
                 console.log(temp);
-                this.setState({ID_activity : temp})
+                this.setState({ID_activity: temp})
             })
             .catch( err => {
                 console.log(err)
@@ -127,8 +127,8 @@ class Resultats extends React.Component {
         
          
         const resultats = {
-            ID_activity:this.state.ID_activity,
-            ID_User: this.state.ID_User,
+            ID_activity: parseInt(this.state.ID_activity,10),
+            ID_User: parseInt(this.state.ID_User,10),
             Type: this.state.Type,
             Lieu: this.state.Lieu,
             Distance: parseInt(this.state.Distance,10),
