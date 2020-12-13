@@ -3,10 +3,10 @@ const mongoose = require("mongoose");
 const activitiesSchema = new mongoose.Schema({
     ID_Activity: {
         type: Number,
-        required: false,
+        required: true,
     }, 
     ID_User: {
-        type: Number,
+        type: String,
         required: false,
     },
     Type: {
@@ -18,15 +18,15 @@ const activitiesSchema = new mongoose.Schema({
         required: false,
     },
     Distance: {
-        type: Number,
+        type: String,
         required: false,
     },
     Vitesse_max: {
-        type: Number,
+        type: String,
         required: false,
     },
     Vitesse_moy: {
-        type: Number,
+        type: String,
         required: false,
     },
     Temps: {
@@ -34,11 +34,11 @@ const activitiesSchema = new mongoose.Schema({
         required: false,
     },
     Calories: {
-        type: Number,
+        type: String,
         required: false,
     },
     Denivele: {
-        type: Number,
+        type: String,
         required: false,
     },
     Map: {

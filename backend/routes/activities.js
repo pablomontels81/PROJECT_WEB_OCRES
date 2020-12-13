@@ -11,7 +11,7 @@ router.get('/',(req,res) =>{
 
 /* GET last activity */
 router.get('/lastact',(req,res) =>{
-    Activity.findOne({}).sort({ID_Activity: -1}).limit(1)
+    Activity.findOne({}).sort({_id: -1}).limit(1)
         .then(activities => res.json(activities))
         .catch(err => res.status(400).json('Error: ' + err));
 });
@@ -673,16 +673,16 @@ router.get('/SwimRecord2', (req,res) => {
 
 /* POST ajout d'une activity (Widget Ajout Activité)*/
 router.post('/add',(req, res) => {
-    const ID_Activity = Number(req.body.ID_Activity);
-    const ID_User = Number(req.body.ID_User);
+    const ID_Activity = String(req.body.ID_Activity);
+    const ID_User = String(req.body.ID_User);
     const Type = String(req.body.Type);
     const Lieu = String(req.body.Lieu);
-    const Distance = Number(req.body.Distance);
-    const Vitesse_max = Number(req.body.Vitesse_max);
-    const Vitesse_moy = Number(req.body.Vitesse_moy);
+    const Distance = String(req.body.Distance);
+    const Vitesse_max = String(req.body.Vitesse_max);
+    const Vitesse_moy = String(req.body.Vitesse_moy);
     const Temps = String(req.body.Temps);
-    const Calories = Number(req.body.Calories);
-    const Denivele = Number(req.body.Denivele);
+    const Calories = String(req.body.Calories);
+    const Denivele = String(req.body.Denivele);
     const Map = String(req.body.Map);
     const date = Date.parse(req.body.date);
 
@@ -707,3 +707,4 @@ router.post('/add',(req, res) => {
 });
 
 module.exports = router;
+
