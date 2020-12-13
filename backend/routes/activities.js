@@ -93,7 +93,7 @@ router.get('/sumruntuesday',(req,res) => {
     var date = new Date();
     var offset = (date.getDay()+6)%7;
     var firstday = new Date(date.getFullYear(), date.getMonth(), date.getDate()-offset+1);
-    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+2);
+    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+1);
     Activity.aggregate([
         {$match: {
             $and : [
@@ -113,7 +113,7 @@ router.get('/sumbiketuesday',(req,res) => {
     var date = new Date();
     var offset = (date.getDay()+6)%7;
     var firstday = new Date(date.getFullYear(), date.getMonth(), date.getDate()-offset+1);
-    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+2);
+    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+1);
     Activity.aggregate([
         {$match: {
             $and : [
@@ -133,7 +133,7 @@ router.get('/sumswimtuesday',(req,res) => {
     var date = new Date();
     var offset = (date.getDay()+6)%7;
     var firstday = new Date(date.getFullYear(), date.getMonth(), date.getDate()-offset+1);
-    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+2);
+    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+1);
     Activity.aggregate([
         {$match: {
             $and : [
@@ -153,7 +153,7 @@ router.get('/sumrunwednesday',(req,res) => {
     var date = new Date();
     var offset = (date.getDay()+6)%7;
     var firstday = new Date(date.getFullYear(), date.getMonth(), date.getDate()-offset+2);
-    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+3);
+    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+1);
     Activity.aggregate([
         {$match: {
             $and : [
@@ -173,7 +173,7 @@ router.get('/sumbikewednesday',(req,res) => {
     var date = new Date();
     var offset = (date.getDay()+6)%7;
     var firstday = new Date(date.getFullYear(), date.getMonth(), date.getDate()-offset+2);
-    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+3);
+    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+1);
     Activity.aggregate([
         {$match: {
             $and : [
@@ -193,7 +193,7 @@ router.get('/sumswimwednesday',(req,res) => {
     var date = new Date();
     var offset = (date.getDay()+6)%7;
     var firstday = new Date(date.getFullYear(), date.getMonth(), date.getDate()-offset+2);
-    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+3);
+    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+1);
     Activity.aggregate([
         {$match: {
             $and : [
@@ -213,7 +213,7 @@ router.get('/sumrunthursday',(req,res) => {
     var date = new Date();
     var offset = (date.getDay()+6)%7;
     var firstday = new Date(date.getFullYear(), date.getMonth(), date.getDate()-offset+3);
-    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+4);
+    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+1);
     Activity.aggregate([
         {$match: {
             $and : [
@@ -233,7 +233,7 @@ router.get('/sumbikethursday',(req,res) => {
     var date = new Date();
     var offset = (date.getDay()+6)%7;
     var firstday = new Date(date.getFullYear(), date.getMonth(), date.getDate()-offset+3);
-    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+4);
+    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+1);
     Activity.aggregate([
         {$match: {
             $and : [
@@ -253,7 +253,7 @@ router.get('/sumswimthursday',(req,res) => {
     var date = new Date();
     var offset = (date.getDay()+6)%7;
     var firstday = new Date(date.getFullYear(), date.getMonth(), date.getDate()-offset+3);
-    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+4);
+    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+1);
     Activity.aggregate([
         {$match: {
             $and : [
@@ -273,7 +273,7 @@ router.get('/sumrunfriday',(req,res) => {
     var date = new Date();
     var offset = (date.getDay()+6)%7;
     var firstday = new Date(date.getFullYear(), date.getMonth(), date.getDate()-offset+4);
-    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+5);
+    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+1);
     Activity.aggregate([
         {$match: {
             $and : [
@@ -293,7 +293,7 @@ router.get('/sumbikefriday',(req,res) => {
     var date = new Date();
     var offset = (date.getDay()+6)%7;
     var firstday = new Date(date.getFullYear(), date.getMonth(), date.getDate()-offset+4);
-    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+5);
+    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+1);
     Activity.aggregate([
         {$match: {
             $and : [
@@ -313,7 +313,7 @@ router.get('/sumswimfriday',(req,res) => {
     var date = new Date();
     var offset = (date.getDay()+6)%7;
     var firstday = new Date(date.getFullYear(), date.getMonth(), date.getDate()-offset+4);
-    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+5);
+    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+1);
     Activity.aggregate([
         {$match: {
             $and : [
@@ -333,7 +333,7 @@ router.get('/sumrunsaturday',(req,res) => {
     var date = new Date();
     var offset = (date.getDay()+6)%7;
     var firstday = new Date(date.getFullYear(), date.getMonth(), date.getDate()-offset+5);
-    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+6);
+    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+1);
     Activity.aggregate([
         {$match: {
             $and : [
@@ -353,7 +353,9 @@ router.get('/sumbikesaturday',(req,res) => {
     var date = new Date();
     var offset = (date.getDay()+6)%7;
     var firstday = new Date(date.getFullYear(), date.getMonth(), date.getDate()-offset+5);
-    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+6);
+    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+1);
+    console.log(firstday);
+    console.log(lastday);
     Activity.aggregate([
         {$match: {
             $and : [
@@ -373,7 +375,7 @@ router.get('/sumswimsaturday',(req,res) => {
     var date = new Date();
     var offset = (date.getDay()+6)%7;
     var firstday = new Date(date.getFullYear(), date.getMonth(), date.getDate()-offset+5);
-    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+6);
+    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+1);
     Activity.aggregate([
         {$match: {
             $and : [
@@ -393,7 +395,7 @@ router.get('/sumrunsunday',(req,res) => {
     var date = new Date();
     var offset = (date.getDay()+6)%7;
     var firstday = new Date(date.getFullYear(), date.getMonth(), date.getDate()-offset+6);
-    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+7);
+    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+1);
     Activity.aggregate([
         {$match: {
             $and : [
@@ -413,7 +415,7 @@ router.get('/sumbikesunday',(req,res) => {
     var date = new Date();
     var offset = (date.getDay()+6)%7;
     var firstday = new Date(date.getFullYear(), date.getMonth(), date.getDate()-offset+6);
-    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+7);
+    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+1);
     Activity.aggregate([
         {$match: {
             $and : [
@@ -433,7 +435,7 @@ router.get('/sumswimsunday',(req,res) => {
     var date = new Date();
     var offset = (date.getDay()+6)%7;
     var firstday = new Date(date.getFullYear(), date.getMonth(), date.getDate()-offset+6);
-    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+7);
+    var lastday = new Date(firstday.getFullYear(), firstday.getMonth(), firstday.getDate()+1);
     Activity.aggregate([
         {$match: {
             $and : [
@@ -671,16 +673,16 @@ router.get('/SwimRecord2', (req,res) => {
 
 /* POST ajout d'une activity (Widget Ajout Activité)*/
 router.post('/add',(req, res) => {
-    const ID_Activity = String(req.body.ID_Activity);
-    const ID_User = String(req.body.ID_User);
+    const ID_Activity = Number(req.body.ID_Activity);
+    const ID_User = Number(req.body.ID_User);
     const Type = String(req.body.Type);
     const Lieu = String(req.body.Lieu);
-    const Distance = String(req.body.Distance);
-    const Vitesse_max = String(req.body.Vitesse_max);
-    const Vitesse_moy = String(req.body.Vitesse_moy);
+    const Distance = Number(req.body.Distance);
+    const Vitesse_max = Number(req.body.Vitesse_max);
+    const Vitesse_moy = Number(req.body.Vitesse_moy);
     const Temps = String(req.body.Temps);
-    const Calories = String(req.body.Calories);
-    const Denivele = String(req.body.Denivele);
+    const Calories = Number(req.body.Calories);
+    const Denivele = Number(req.body.Denivele);
     const Map = String(req.body.Map);
     const date = Date.parse(req.body.date);
 

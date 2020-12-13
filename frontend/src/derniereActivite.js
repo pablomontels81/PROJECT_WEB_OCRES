@@ -48,7 +48,10 @@ class DerniereActivite extends React.Component {
 				this.setState({denivele_positif: temp8});
 				const temp9 = response.data.Map;
 				this.setState({map: temp9});
-            });
+			})
+			.catch( err => {
+				console.log(err)
+			});
     }
 
 
