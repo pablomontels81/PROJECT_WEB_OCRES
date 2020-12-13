@@ -29,7 +29,7 @@ class Resultats extends React.Component {
 
         this.state = {
             ID_activity: '',
-            ID_User: '1',
+            ID_User: 1,
             Type: '',
             Lieu: '',
             Distance: '',
@@ -43,12 +43,20 @@ class Resultats extends React.Component {
         }
     }
 
-    componentDidMount() {
-        axios.get('http://localhost:3001/activities/lastact')
+    async componentDidMount() {
+        try{
+            await axios.get('http://localhost:3001/activities/lastact')
             .then(response =>{
-                const temp = parseInt(response.data.ID_Activity, 10) +1.0;
-                this.setState({ID_Activity: temp})
+                const temp = parseInt(response.data.ID_Activity,10) +1.0;
+                this.setState({ID_activity: temp.toString()})
+            })
+            .catch( err => {
+                console.log(err)
             });
+        }
+        catch(err){
+			console.log(err)
+		}
     }
 
     onChangeType(e) {
@@ -115,18 +123,18 @@ class Resultats extends React.Component {
         e.preventDefault();
 
         const resultats = {
-            id_activity: this.state.id_activity,
-            ID_User: this.state.ID_User,
+            ID_activity: parseInt(this.state.ID_activity,10),
+            ID_User: parseInt(this.state.ID_User,10),
             Type: this.state.Type,
             Lieu: this.state.Lieu,
-            Distance: this.state.Distance,
-            Vitesse_max: this.state.Vitesse_max,
-            Vitesse_moy: this.state.Vitesse_moy,
+            Distance: parseInt(this.state.Distance,10),
+            Vitesse_max: parseInt(this.state.Vitesse_max,10),
+            Vitesse_moy: parseInt(this.state.Vitesse_moy,10),
             Temps: this.state.Temps,
-            Calories: this.state.Calories,
-            Denivele: this.state.Denivele,
+            Calories: parseInt(this.state.Calories,10),
+            Denivele: parseInt(this.state.Denivele,10),
             Map: this.state.Map,
-            date: this.state.date
+            date: this.state.date,
         }
 
         console.log(resultats);
