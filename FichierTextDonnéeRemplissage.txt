@@ -1,0 +1,33 @@
+Activité 1
+Lieu : Arâches La Frasse
+Type : course
+Distance : 10.22
+Vitesse_Moy: 7.2
+Vitesse_Max: 18
+Temps: 1.24.41
+Denivele: 700
+Calories: 694
+Map: https://www.google.com/maps/d/u/0/embed?mid=18lzuVMyLJe2HUT55GNyOhE8Jyd9x52Xb
+
+Activité 2
+Lieu : Paris - Saclay
+Type: vélo
+Distance : 56.68
+Vitesse_Moy: 27
+Vitesse_Max: 53
+Temps: 2.06.58
+Denivele: 505
+Calories: 805
+Map: https://www.google.com/maps/d/u/0/embed?mid=1z1sECiv2cR21DZhsrwjVlSIGKMsFeMO6
+
+Activité 3
+Lieu : Ronde Castraise
+Type: vélo
+Distance : 85.58
+Vitesse_Moy: 30.0
+Vitesse_Max: 63.6
+Temps: 2.51.05
+Denivele: 1445
+Calories: 1397
+Map: https://www.google.com/maps/d/u/0/embed?mid=1UkoTZQVfOATRnnQQTJaKyu6Zpyz3xC2F
+
