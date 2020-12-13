@@ -47,16 +47,8 @@ class Resultats extends React.Component {
         try{
             await axios.get('http://localhost:3001/activities/lastact')
             .then(response =>{
-<<<<<<< HEAD
                 const temp = parseInt(response.data.ID_Activity, 10) +1.0;
                 this.setState({ID_activity: temp})
-=======
-                const temp = parseInt(response.data.ID_Activity,10) +1.0;
-                this.setState({ID_activity: temp.toString()})
-            })
-            .catch( err => {
-                console.log(err)
->>>>>>> master
             });
         }
         catch(err){
@@ -128,13 +120,8 @@ class Resultats extends React.Component {
         e.preventDefault();
 
         const resultats = {
-<<<<<<< HEAD
-            ID_activity: this.state.ID_activity,
-            ID_User: this.state.ID_User,
-=======
             ID_activity: parseInt(this.state.ID_activity,10),
             ID_User: parseInt(this.state.ID_User,10),
->>>>>>> master
             Type: this.state.Type,
             Lieu: this.state.Lieu,
             Distance: parseInt(this.state.Distance,10),
@@ -149,10 +136,10 @@ class Resultats extends React.Component {
 
         console.log(resultats);
 
-        /*axios.post('http://localhost:3001/activities/add', resultats)
-            .then(res => console.log(res.data));*/
+        axios.post('http://localhost:3001/activities/add', resultats)
+            .then(res => console.log(res.data));
 
-        //window.location = "/formulaire";
+        window.location = "/formulaire";
     }
 
     render(){
