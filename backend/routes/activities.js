@@ -471,7 +471,7 @@ router.get('/sumrun',(req,res) => {
     .catch(err => res.status(400).json('Error: ' + err)); 
 });
 
-/* GET la somme des distances de natation sur la semaine d'avant (Widget Statut d'Entrainement)*/
+/* GET la somme des distances de course sur la semaine d'avant (Widget Statut d'Entrainement)*/
 router.get('/sumrunweek',(req,res) => {
     var date = new Date();
     var offset = (date.getDay()+6)%7;
@@ -512,7 +512,7 @@ router.get('/sumbike',(req,res) => {
     .catch(err => res.status(400).json('Error: ' + err));
 });
 
-/* GET la somme des distances de natation sur la semaine d'avant (Widget Statut d'Entrainement)*/
+/* GET la somme des distances de vélo sur la semaine d'avant (Widget Statut d'Entrainement)*/
 router.get('/sumbikeweek',(req,res) => {
     var date = new Date();
     var offset = (date.getDay()+6)%7;
